@@ -96,12 +96,12 @@ class TestOSInfo(SparkModuleBase):
                 self.displayData(0,0, self._info_cpu["hardware"] + "(" + str(self._info_cpu["processor"]) + ")", "CPU: ")
                 self.displayData(102,0, self._info_cpu_usage, "")
                 
-                self.displayData(0,16, self.myOS.bytes2Human(self._info_disk["total"] * 1000), "HDD: ")
-                self.displayData(56,16, self.myOS.bytes2Human(self._info_disk["used"] * 1000), "/ ")
+                self.displayData(0,16, self.myOS.bytesUnit2HM(self._info_disk["total"] * 1000), "HDD: ")
+                self.displayData(56,16, self.myOS.bytesUnit2HM(self._info_disk["used"] * 1000), "/ ")
                 self.displayData(102,16, self._info_disk["usage"], "")
                 
-                self.displayData(0,32, self.myOS.bytes2Human(self._info_mem["total"] * 1000), "MEM: ")
-                self.displayData(56,32, self.myOS.bytes2Human(self._info_mem["used"] * 1000), "/ ")
+                self.displayData(0,32, self.myOS.bytesUnit2HM(self._info_mem["total"] * 1000), "MEM: ")
+                self.displayData(56,32, self.myOS.bytesUnit2HM(self._info_mem["used"] * 1000), "/ ")
                 self.displayData(102,32, self._info_mem["usage"], "")
         
                 self.displayData(0,48, self._info_ip[0], " IP: ")
