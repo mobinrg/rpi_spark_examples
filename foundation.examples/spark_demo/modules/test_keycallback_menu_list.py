@@ -11,10 +11,10 @@ import os.path
 from PIL import Image
 from time import sleep
 
-from JMRPiFoundations.skeleton.JMRPiSparkModule import SparkModuleBase
+from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
 from modules.test_keycallback import TestKeyCallback
 
-class TestKeyCallbackMenuList(SparkModuleBase):
+class TestKeyCallbackMenuList(RPiSparkModule):
     myKeyboard = None
     myScreen = None
     

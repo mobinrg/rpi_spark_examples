@@ -10,7 +10,7 @@ import os.path
 from PIL import Image
 from time import sleep
 
-from JMRPiFoundations.skeleton.JMRPiSparkModule import SparkModuleBase
+from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
 
 from modules.spark_module_helper import drawBtn
 from modules.spark_module_helper import drawText
@@ -25,7 +25,7 @@ FONT_SIZE = 28
 FONT_NAME_MSG = "Roboto-Light.ttf"
 FONT_SIZE_MSG = 11
 
-class TestWelcome(SparkModuleBase):
+class TestWelcome(RPiSparkModule):
     myScreen = None
 
 #     def sndStart(self):

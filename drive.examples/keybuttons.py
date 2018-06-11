@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# JMRPi.Spark KeyButton Demo
+# RPi.Spark KeyButton Demo
 #
 # Author: Kunpeng Zhang
 # 2018.6.6
@@ -10,9 +10,9 @@
 from time import sleep
 import RPi.GPIO as GPIO
 
-from JMRPiDrives.key.JMRPiKeyButtons import SSKeyButtons
-from JMRPiDrives.key.JMRPiKeyButtons import DEF_BOUNCE_TIME_SHORT_MON
-from JMRPiDrives.key.JMRPiKeyButtons import DEF_BOUNCE_TIME_NORMAL
+from JMRPiSpark.Drives.Key.RPiKeyButtons import RPiKeyButtons
+from JMRPiSpark.Drives.Key.RPiKeyButtons import DEF_BOUNCE_TIME_SHORT_MON
+from JMRPiSpark.Drives.Key.RPiKeyButtons import DEF_BOUNCE_TIME_NORMAL
 
 ########################################################################
 # Key buttons include Joystick buttons and Action buttons, 
@@ -38,7 +38,7 @@ class demo:
     _myKey = None
     
     def __init__(self):
-        self._myKey = SSKeyButtons()
+        self._myKey = RPiKeyButtons()
 
     def _getKeyButtonName(self, keyBtn):
         if keyBtn == CONFIG_KEY.BUTTON_ACT_A: return "BUTTON_A"

@@ -15,15 +15,15 @@ from PIL import ImageFont
 import pygame
 from pygame.locals import *
 
-from JMRPiFoundations.skeleton.JMRPiSparkModule import SparkModuleBase
-from JMRPiFoundations.utiles.JMMovingAvg import JMMovingAvg
-from JMRPiFoundations.utiles.JMOSInfo import JMOSInfo
+from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
+from JMRPiFoundations.Utiles.AvgCalculators import MovingAvgCalculator
+from JMRPiFoundations.Utiles.OSInfo import OSInfo
 
 from modules.spark_module_helper import drawText
 from modules.spark_module_helper import drawMultiLineText
 
 def getCPUCount():
-    myOS = JMOSInfo()
+    myOS = OSInfo()
     cpu_info = myOS.getCPUInfo()
     return cpu_info["processor"]
 
@@ -98,7 +98,7 @@ class MusicNote():
         pygame.mixer.music.load( bgFilename )
         pygame.mixer.music.play(-1)
 
-class TestGameBricka(SparkModuleBase):
+class TestGameBricka(RPiSparkModule):
     myScreen = None
     myAudio = None
     myAttitude = None
@@ -247,7 +247,7 @@ class TestGameBricka(SparkModuleBase):
     def run(self):
         self.myAudio.on()
         pygame.mixer.init()
-        self.lastAccelMA_X = JMMovingAvg(15)
+        self.lastAccelMA_X = MovingAvgCalculator(15)
         self._initKeyButtons("INT")
 
         self.myMusicNote.playBgMusic( self.myMusicNote.getBgFile( MUSIC_BG_FILE ) )

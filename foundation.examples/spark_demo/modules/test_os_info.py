@@ -13,10 +13,10 @@ from PIL import ImageFont
 from PIL import Image
 from time import sleep
 
-from JMRPiFoundations.skeleton.JMRPiSparkModule import SparkModuleBase
-from JMRPiFoundations.utiles.JMOSInfo import JMOSInfo
+from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
+from JMRPiFoundations.Utiles.OSInfo import OSInfo
 
-class TestOSInfo(SparkModuleBase):
+class TestOSInfo(RPiSparkModule):
     myScreen = None
     # Load default font.
     myFont = None
@@ -81,7 +81,7 @@ class TestOSInfo(SparkModuleBase):
         self.displayData(20,28, "Loading ...", "")
         self.myScreen.refresh()
 
-        self.myOS = JMOSInfo()
+        self.myOS = OSInfo()
         self.myTime = threading.Timer(1, self._callbackTimer)
         self.myTime.start()
 

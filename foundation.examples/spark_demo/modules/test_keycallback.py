@@ -10,9 +10,9 @@ import random
 import os.path
 from PIL import Image
 from time import sleep
-from JMRPiFoundations.skeleton.JMRPiSparkModule import SparkModuleBase
+from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
 
-class TestKeyCallback(SparkModuleBase):
+class TestKeyCallback(RPiSparkModule):
     myKeyboard = None
     myScreen = None
     _actStatus = 0
@@ -34,7 +34,7 @@ class TestKeyCallback(SparkModuleBase):
             ])
         except:
             pass
-#         super(SparkModuleBase, self)._initKeyboard()
+#         super(RPiSparkModule, self)._initKeyboard()
 #         self.myKeyboard.setKeyButtonCallback(self._RPiSparkConfig.BUTTON_ACT_A, self._callback )
 #         self.myKeyboard.setKeyButtonCallback(self._RPiSparkConfig.BUTTON_ACT_B, self._callback )
 #         self.myKeyboard.setKeyButtonCallback(self._RPiSparkConfig.BUTTON_JOY_UP, self._callback )

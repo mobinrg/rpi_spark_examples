@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# JMRPi.Spark Screen Demo
+# RPi.Spark Screen Demo
 #
 # Author: Kunpeng Zhang
 # 2018.6.6
@@ -14,8 +14,8 @@ from PIL import Image
 from PIL import ImageFont
 from time import sleep
 from math import sin
-from JMRPiDrives.display.JMRPiDisplay_SSD1306 import SSD1306_128x64
-from JMRPiDrives.screen.JMRPiScreen_SSD1306 import SScreenSSD1306
+from JMRPiSpark.Drives.Display.SSD1306 import SSD1306_128x64
+from JMRPiSpark.Drives.Screen.SScreenSSD1306 import SScreenSSD1306
 
 ###################################
 # Font 
@@ -126,7 +126,7 @@ class demo:
         self._myScreen.clear()
         
         # Draw a text
-        print("Draw a sin curve")
+        print("Draw a text")
         self._drawText( self._myScreen, 1 )
         self._myScreen.refresh()
         sleep(2)

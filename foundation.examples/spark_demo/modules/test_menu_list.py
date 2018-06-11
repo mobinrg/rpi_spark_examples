@@ -17,7 +17,7 @@ from PIL import ImageFont
 from time import sleep
 
 #Submodules
-from JMRPiFoundations.skeleton.JMRPiSparkModule import SparkModuleBase
+from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
 
 from modules.test_display import TestDisplay
 from modules.test_buttons import TestButtons
@@ -99,7 +99,7 @@ class MenuItems:
 ##########################################
 # Menu List Module
 #
-class TestMenuList(SparkModuleBase):
+class TestMenuList(RPiSparkModule):
     myScreen = None
     myKeyboard = None
     myMenuItems = None

@@ -14,8 +14,8 @@ import sys
 import math
 import pygame
 import random
-from JMRPiFoundations.skeleton.JMRPiSparkModule import SparkModuleBase
-from JMRPiFoundations.utiles.JMSampleFilters import JMSample3AxisMAFilter
+from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
+from JMRPiFoundations.Utiles.DataFilters import Sample3AxisMAFilter
 
 class Point3D:
     x = 0; y = 0; z = 0
@@ -60,7 +60,7 @@ class Point3D:
 DRAW_MODE_LINE          = 0
 DRAW_MODE_LINE_BALL     = 1
 
-class TestSim3D(SparkModuleBase):
+class TestSim3D(RPiSparkModule):
     myScreen = None
     myAttitude = None
     
@@ -121,7 +121,7 @@ class TestSim3D(SparkModuleBase):
         self.myScreen.changeBufferColorMode("RGB")
 
         ScreenW, ScreenH = self.myScreen.Display.width, self.myScreen.Display.height
-        myAccelFilter = JMSample3AxisMAFilter(15)
+        myAccelFilter = Sample3AxisMAFilter(15)
         while True:
             accelV = self.myAttitude.getAccelData( raw = False )
             lastAccelMA = myAccelFilter.addSampleValue(accelV["x"], accelV["y"], accelV["z"])

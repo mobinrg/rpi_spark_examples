@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# JMRPi.Spark SSD1306 OLED Demo
+# RPi.Spark SSD1306 OLED Demo
 #
 # Author: Kunpeng Zhang
 # 2018.6.6
@@ -12,7 +12,7 @@ import os.path
 import spidev
 from PIL import Image
 from time import sleep
-from JMRPiDrives.display.JMRPiDisplay_SSD1306 import SSD1306_128x64
+from JMRPiSpark.Drives.Display.SSD1306 import SSD1306_128x64
 
 ########################################################################
 # Display PINs  SPI_0

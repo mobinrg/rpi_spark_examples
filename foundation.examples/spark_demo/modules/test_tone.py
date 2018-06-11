@@ -13,8 +13,8 @@ from PIL import Image
 from PIL import ImageFont
 from time import sleep
 
-from JMRPiFoundations.skeleton.JMRPiSparkModule import SparkModuleBase
-from JMRPiDrives.audio.JMRPiTone import JMRPiTonePlayer
+from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
+from JMRPiSpark.Drives.Audio.RPiTone import RPiTonePlayer
 
 ###################################
 # Font 
@@ -22,7 +22,7 @@ from JMRPiDrives.audio.JMRPiTone import JMRPiTonePlayer
 FONT_NAME = "AHandMadeFont.ttf"
 FONT_SIZE = 28
 
-class TestTone(SparkModuleBase):
+class TestTone(RPiSparkModule):
     myScreen = None
     
     def drawToneMode(self, y, toneMode):
@@ -32,7 +32,7 @@ class TestTone(SparkModuleBase):
         self.myScreen.Canvas.text( ((128-fw)/2, y), toneMode, font=font, fill= 1)
 
     def _sndTone(self):
-        myTone = JMRPiTonePlayer( self._RPiSparkConfig.SPEAKER )
+        myTone = RPiTonePlayer( self._RPiSparkConfig.SPEAKER )
         tones = [ 20, 46, 69, 105, 160, 244, 371, 565, 859, 1300, 1980 ]
         for t in tones:
             myTone.playTone( t, 1, 0.2, 0 )

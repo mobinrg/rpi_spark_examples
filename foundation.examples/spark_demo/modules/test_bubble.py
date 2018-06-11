@@ -30,10 +30,10 @@ import random
 import pygame
 from PIL import Image
 from time import sleep
-from JMRPiFoundations.skeleton.JMRPiSparkModule import SparkModuleBase
-from JMRPiFoundations.utiles.JMSampleFilters import JMSample3AxisMAFilter
+from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
+from JMRPiFoundations.Utiles.DataFilters import Sample3AxisMAFilter
 
-class TestBubble(SparkModuleBase):
+class TestBubble(RPiSparkModule):
     myScreen = None
     myAttitude = None
     myKeyboard = None
@@ -51,7 +51,7 @@ class TestBubble(SparkModuleBase):
         # Open attitude only accel sensor
         self.myAttitude.openWith( accel = True, gyro = False, temp = False, cycle = False )
 
-        self.mySampleFilter = JMSample3AxisMAFilter(15)
+        self.mySampleFilter = Sample3AxisMAFilter(15)
 
         #change display buffer color mode to mono
         self.myScreen.changeBufferColorMode("1")

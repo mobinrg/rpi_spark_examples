@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# JMRPi.Spark Tone Play Demo
+# RPi.Spark Tone Play Demo
 #
 # Author: Kunpeng Zhang
 # 2018.6.6
@@ -10,8 +10,8 @@
 from time import sleep
 import RPi.GPIO as GPIO
 
-from JMRPiDrives.audio.JMRPiTone import JMRPiTonePlayer
-from JMRPiDrives.audio.JMRPiTone import TONE_MID, TONE_A
+from JMRPiSpark.Drives.Audio.RPiTone import RPiTonePlayer
+from JMRPiSpark.Drives.Audio.RPiTone import TONE_MID, TONE_A
 
 ########################################################################
 # Audio PINs
@@ -27,7 +27,7 @@ class demo:
     _myTone = None
 
     def __init__(self):
-        self._myTone = JMRPiTonePlayer( CONFIG_AUDIO.SPEAKER )
+        self._myTone = RPiTonePlayer( CONFIG_AUDIO.SPEAKER )
 
     def _sndTone(self):
         for t in TONE_MID[TONE_A]:

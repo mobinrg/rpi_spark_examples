@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# JMRPi.Spark Audio Play Demo
+# RPi.Spark Audio Play Demo
 #
 # Author: Kunpeng Zhang
 # 2018.6.6
@@ -14,7 +14,7 @@ from pygame.locals import *
 from time import sleep
 import RPi.GPIO as GPIO
 
-from JMRPiDrives.audio.JMRPiAudio import SSAudioDevice
+from JMRPiSpark.Drives.Audio.RPiAudio import RPiAudioDevice
 
 SOUND_MUSIC = [ "erhu.ogg", "piano.ogg" ]
 
@@ -33,7 +33,7 @@ class demo:
     _myAudio = None
 
     def __init__(self):
-        self._myAudio = SSAudioDevice( CONFIG_AUDIO.AUDIO_R, CONFIG_AUDIO.AUDIO_L )
+        self._myAudio = RPiAudioDevice( CONFIG_AUDIO.AUDIO_R, CONFIG_AUDIO.AUDIO_L )
 
     def _getSoundFilePath(self, filename):
         return os.path.abspath(os.path.join('music/', filename))

@@ -12,8 +12,8 @@
 
 import sys
 
-from JMRPiFoundations.skeleton.JMRPiSparkProvider import initSpark
-from JMRPiFoundations.devices.rpi_spark_z_1_0_0 import JMRPiSparkConfig as mySparkConfig
+from JMRPiFoundations.Skeleton.RPiSparkProvider import initSpark
+from JMRPiFoundations.Devices.rpi_spark_z_1_0_0 import RPiSparkConfig as mySparkConfig
 from modules.sim3d import TestSim3D
 
 def main(argv):

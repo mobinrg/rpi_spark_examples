@@ -13,7 +13,7 @@ from pygame.locals import *
 from PIL import Image
 from PIL import ImageFont
 from time import sleep
-from JMRPiFoundations.skeleton.JMRPiSparkModule import SparkModuleBase
+from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
 from modules.spark_module_helper import drawBtn
 from modules.spark_module_helper import drawText
 
@@ -68,7 +68,7 @@ ACTION_NONE = 0
 ACTION_EXIT = 100
 ACTION_SWITCH_SOUND_MODE = 1
 
-class TestSound(SparkModuleBase):
+class TestSound(RPiSparkModule):
     myScreen = None
     myKeyboard = None
     myAudio = None

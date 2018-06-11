@@ -9,10 +9,10 @@
 from PIL import ImageFont
 from time import sleep
 import RPi.GPIO as GPIO
-from JMRPiFoundations.utiles.JMSampleFilters import JMSample3AxisMAFilter
-from JMRPiFoundations.skeleton.JMRPiSparkModule import SparkModuleBase
+from JMRPiFoundations.Utiles.DataFilters import Sample3AxisMAFilter
+from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
 
-class TestAttitude(SparkModuleBase):
+class TestAttitude(RPiSparkModule):
     myScreen = None
     myAttitude = None
     mySampleFilterA = None
@@ -60,8 +60,8 @@ class TestAttitude(SparkModuleBase):
         self.myScreen = self._RPiSpark.Screen
         self.myAttitude = self._RPiSpark.Attitude
 
-        self.mySampleFilterA = JMSample3AxisMAFilter(15)
-        self.mySampleFilterG = JMSample3AxisMAFilter(15)
+        self.mySampleFilterA = Sample3AxisMAFilter(15)
+        self.mySampleFilterG = Sample3AxisMAFilter(15)
 
         #change display buffer color mode to mono
         self.myScreen.changeBufferColorMode("1")

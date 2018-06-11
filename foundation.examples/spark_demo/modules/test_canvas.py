@@ -12,11 +12,11 @@ from math import sin
 from PIL import Image
 from PIL import ImageFont
 from time import sleep
-from JMRPiFoundations.skeleton.JMRPiSparkModule import SparkModuleBase
+from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
 
 DEF_FONT = ImageFont.load_default()
 
-class TestCanvas(SparkModuleBase):
+class TestCanvas(RPiSparkModule):
     myScreen = None
 
     def getColor(self, colorMode ):

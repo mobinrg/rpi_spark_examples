@@ -7,10 +7,10 @@
 
 
 from PIL import ImageFont
-from JMRPiFoundations.skeleton.JMRPiSparkModule import SparkModuleBase
+from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
 from modules.spark_module_helper import drawBtn
 
-class TestButtons(SparkModuleBase):
+class TestButtons(RPiSparkModule):
     myScreen = None
     myKeyboard = None
     dispContrast = 128

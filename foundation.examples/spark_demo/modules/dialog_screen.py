@@ -8,7 +8,7 @@
 import os.path
 from time import sleep
 from PIL import ImageFont
-from JMRPiFoundations.skeleton.JMRPiSparkModule import SparkModuleBase
+from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
 from modules.spark_module_helper import drawBtn
 from modules.spark_module_helper import drawText
 from modules.spark_module_helper import drawMultiLineText
@@ -19,7 +19,7 @@ class DialogConst:
     DIALOG_BUTTON_YES       = 1
     DIALOG_BUTTON_NO        = 2
 
-class DialogScreen(SparkModuleBase):
+class DialogScreen(RPiSparkModule):
     myScreen = None
     fontName = None
     fontSize = 12

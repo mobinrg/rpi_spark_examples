@@ -10,9 +10,9 @@ import random
 import os.path
 from PIL import Image
 from time import sleep
-from JMRPiFoundations.skeleton.JMRPiSparkModule import SparkModuleBase
+from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
 
-class TestDisplay(SparkModuleBase):
+class TestDisplay(RPiSparkModule):
     mySCREEN = None
     myDSP = None
 

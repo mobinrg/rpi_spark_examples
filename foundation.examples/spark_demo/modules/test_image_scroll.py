@@ -12,8 +12,8 @@ from time import sleep
 import RPi.GPIO as GPIO
 import os.path
 
-from JMRPiFoundations.skeleton.JMRPiSparkModule import SparkModuleBase
-from JMRPiFoundations.utiles.JMSampleFilters import JMSample3AxisMAFilter
+from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
+from JMRPiFoundations.Utiles.DataFilters import Sample3AxisMAFilter
 
 images = [
     "pix001.jpg",
@@ -26,7 +26,7 @@ VIEW_MOVE_RIGHT = 1
 VIEW_MOVE_UP    = 2
 VIEW_MOVE_DOWN  = 3
 
-class TestImageScroll(SparkModuleBase):
+class TestImageScroll(RPiSparkModule):
     myScreen = None
     myKeyboard = None
     myAttitude = None
@@ -109,7 +109,7 @@ class TestImageScroll(SparkModuleBase):
         self.myScreen = self._RPiSpark.Screen
         self.myKeyboard = self._RPiSpark.Keyboard
         self.myAttitude = self._RPiSpark.Attitude
-        self.mySampleFilterA = JMSample3AxisMAFilter(10)
+        self.mySampleFilterA = Sample3AxisMAFilter(10)
 
     #Test Image Scroll
     def run(self):

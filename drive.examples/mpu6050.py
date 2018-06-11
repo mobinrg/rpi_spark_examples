@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# JMRPi.Spark MPU6050 Demo
+# RPi.Spark MPU6050 Demo
 #
 # Author: Kunpeng Zhang
 # 2018.6.6
@@ -10,8 +10,8 @@
 from time import sleep
 import RPi.GPIO as GPIO
 
-from JMRPiDrives.attitude.JMRPi_MPU6050 import mpu6050
-from JMRPiDrives.attitude.JMRPi_MPU6050 import DEF_MPU6050_ADDRESS
+from JMRPiSpark.Drives.Attitude.MPU6050 import MPU6050
+from JMRPiSpark.Drives.Attitude.MPU6050 import DEF_MPU6050_ADDRESS
 
 MPU_INT_PIN = 25
 
@@ -21,7 +21,7 @@ class demo:
     _myAttitude = None
 
     def __init__(self):
-        self._myAttitude = mpu6050( DEF_MPU6050_ADDRESS )
+        self._myAttitude = MPU6050( DEF_MPU6050_ADDRESS )
 
     def _shakeDeviceCallback(self, channel):
         self._shakeCount += 1
@@ -31,8 +31,8 @@ class demo:
         GPIO.setmode(GPIO.BCM)
         
         # Open attitude with all sensor ( accel, gyro, temp )
-        self._myAttitude.setAccelRange( mpu6050.ACCEL_RANGE_2G )
-        self._myAttitude.setGyroRange( mpu6050.GYRO_RANGE_250DEG )
+        self._myAttitude.setAccelRange( MPU6050.ACCEL_RANGE_2G )
+        self._myAttitude.setGyroRange( MPU6050.GYRO_RANGE_250DEG )
         self._myAttitude.open()
         # self._myAttitude.openWith( accel = True, gyro = True, temp = True, cycle = False )
         

@@ -20,13 +20,13 @@ from random import randint
 import os.path
 from PIL import Image
 
-from JMRPiFoundations.skeleton.JMRPiSparkModule import SparkModuleBase
-from JMRPiFoundations.utiles.JMSampleFilters import JMSample3AxisMAFilter
+from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
+from JMRPiFoundations.Utiles.DataFilters import Sample3AxisMAFilter
 
 STAR_NUM    = 120
 STAR_DEPTH  = 96
 
-class Test3DStarfield(SparkModuleBase):
+class Test3DStarfield(RPiSparkModule):
     _star_num = 0
     _star_depth = 0
     _speed = 0
@@ -103,7 +103,7 @@ class Test3DStarfield(SparkModuleBase):
         ScreenW, ScreenH = self.myScreen.Display.width, self.myScreen.Display.height
         originX = ScreenW / 2
         originY = ScreenH / 2
-        myAccelFilter = JMSample3AxisMAFilter(15)
+        myAccelFilter = Sample3AxisMAFilter(15)
 
         self.myScreen.clear()
         while True:

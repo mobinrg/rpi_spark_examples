@@ -9,11 +9,11 @@
 
 import sys
 
-from JMRPiFoundations.skeleton.JMRPiSparkProvider import initSpark
-from JMRPiFoundations.skeleton.JMRPiSparkModule import SparkModuleBase
-from JMRPiFoundations.devices.rpi_spark_z_1_0_0 import JMRPiSparkConfig as mySparkConfig
+from JMRPiFoundations.Skeleton.RPiSparkProvider import initSpark
+from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
+from JMRPiFoundations.Devices.rpi_spark_z_1_0_0 import RPiSparkConfig as mySparkConfig
 
-class DemoModule(SparkModuleBase):
+class DemoModule(RPiSparkModule):
     def setup(self):
         print("\nCall module's setup() ...\n")
         print("You can inherit and implement your setup code in the setup() function.")
