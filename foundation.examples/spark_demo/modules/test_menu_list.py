@@ -106,9 +106,8 @@ class TestMenuList(RPiSparkModule):
 
     _actStatus = ACTION_NONE
     
-#     def sndFinish(self):
-#         print("结束声音")
-#         self._beepTone(5, 0.1)
+    def _sndFinish(self):
+        self._beepTone(5, 0.05)
 
     ##########################################
     # Key Buttons Process
@@ -319,14 +318,14 @@ class TestMenuList(RPiSparkModule):
             if self._actStatus == ACTION_MENU_PREV:
                 self.myMenuItems.previous()
                 self._actStatus = ACTION_DRAW_MENU
-#                 self._beep()
+                self._beep()
                 continue
 
             # Next Menu Item
             if self._actStatus == ACTION_MENU_NEXT:
                 self.myMenuItems.next()
                 self._actStatus = ACTION_DRAW_MENU
-#                 self._beep()
+                self._beep()
                 continue
 
             # Update menu item
@@ -337,6 +336,7 @@ class TestMenuList(RPiSparkModule):
                 self._actStatus = ACTION_NONE
                 continue
 
-#         self.sndFinish()
+        self._releaseKeyButtons()
+        self._sndFinish()
         GPIO.cleanup()
         print("\nTestting done.")

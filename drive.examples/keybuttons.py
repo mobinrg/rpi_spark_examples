@@ -36,7 +36,7 @@ class CONFIG_KEY:
 
 class demo:
     _myKey = None
-    
+
     def __init__(self):
         self._myKey = RPiKeyButtons()
 
@@ -59,9 +59,11 @@ class demo:
         print("UP:\t{}\n".format(self._getKeyButtonName(channel)))
         pass
 
-    # Key button interrupt event callback function
-    # Inherit this method to implement your want
     def _callbackKeyButton(self, channel):
+        """!
+            Key button interrupt event callback function
+            Inherit this method to implement your want
+        """
         if self._myKey.readKeyButton(channel) == 0:
             self._keyButtonDown(channel)
             return
@@ -70,11 +72,13 @@ class demo:
             self._keyButtonUp(channel)
             return
 
-    # Init all key buttons interrupt events or query mode. 
-    # Inherit the _keyButtonDown and _keyButtonUp to implement your want
-    # mode: Can be { "INT" | "QUERY" }, default is "INT"
-    #
     def _initKeyButtons(self, mode = "INT"):
+        """!
+            Init all key buttons interrupt events or query mode. 
+            Inherit the _keyButtonDown and _keyButtonUp to implement your want
+    
+            @param mode: Can be { "INT" | "QUERY" }, default is "INT" 
+        """
         if mode.upper() == "INT":
             try:
                 self._myKey.configKeyButtons(
@@ -101,28 +105,34 @@ class demo:
                 {"id":CONFIG_KEY.BUTTON_JOY_LEFT, "callback":None},
                 {"id":CONFIG_KEY.BUTTON_JOY_RIGHT, "callback":None}
             ])
-    
-    # Release all key button events
+     
     def _releaseKeyButtons(self):
-            self._myKey.removeKeyButtonEvent([
-                CONFIG_KEY.BUTTON_ACT_A,
-                CONFIG_KEY.BUTTON_ACT_B,
-                CONFIG_KEY.BUTTON_JOY_UP,
-                CONFIG_KEY.BUTTON_JOY_DOWN,
-                CONFIG_KEY.BUTTON_JOY_LEFT,
-                CONFIG_KEY.BUTTON_JOY_RIGHT,
-                CONFIG_KEY.BUTTON_JOY_OK
-            ])
-
-    # Read key button status, return 0 / 1
+        """!
+            Release all key button events
+        """
+        self._myKey.removeKeyButtonEvent([
+            CONFIG_KEY.BUTTON_ACT_A,
+            CONFIG_KEY.BUTTON_ACT_B,
+            CONFIG_KEY.BUTTON_JOY_UP,
+            CONFIG_KEY.BUTTON_JOY_DOWN,
+            CONFIG_KEY.BUTTON_JOY_LEFT,
+            CONFIG_KEY.BUTTON_JOY_RIGHT,
+            CONFIG_KEY.BUTTON_JOY_OK
+        ])
+ 
     def _readKeyButton(self, keyBtn):
+        """!
+            Read key button status, return 0 / 1
+        """
         if self._myKey.readKeyButton( keyBtn ) == 0:
             sleep(0.02)
             return 0 if self._myKey.readKeyButton( keyBtn ) else 1
         return 0
-
-    # Read Exit action ( buttn A and Joy UP press down same time )
+ 
     def _readExitButtonStatus(self):
+        """!
+            Read Exit action ( buttn A and Joy UP press down same time )
+        """
         pressA = self._readKeyButton(CONFIG_KEY.BUTTON_ACT_A)
         pressUp = self._readKeyButton(CONFIG_KEY.BUTTON_JOY_UP)
         return pressA and pressUp
