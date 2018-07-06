@@ -6,7 +6,6 @@
 #
 # See LICENSE for details.
 
-
 import random
 import os.path
 from PIL import Image
@@ -15,7 +14,7 @@ from time import sleep
 
 from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
 from JMRPiSpark.Drives.Audio.RPiTone import TONE_MID, TONE_BASS, TONE_A
-# from JMRPiSpark.Drives.Audio.RPiTone import RPiTonePlayer
+from JMRPiSpark.Drives.Audio.RPiTone import RPiTonePlayer
 
 ###################################
 # Font 
@@ -25,6 +24,7 @@ FONT_SIZE = 28
 
 class TestTone(RPiSparkModule):
     myScreen = None
+    myTone = None
     
     def drawToneMode(self, y, toneMode):
         font = ImageFont.truetype(FONT_NAME, FONT_SIZE)
@@ -33,18 +33,14 @@ class TestTone(RPiSparkModule):
         self.myScreen.Canvas.text( ((128-fw)/2, y), toneMode, font=font, fill= 1)
 
     def _sndTone(self):
-#         myTone = RPiTonePlayer( self._RPiSparkConfig.SPEAKER )
+        if self.myTone == None: return
         tones = [ 20, 46, 69, 105, 160, 244, 371, 565, 859, 1300, 1980 ]
         for t in tones:
-            if self._RPiSpark.Tone != None:
-                self._RPiSpark.Tone.playTone( freq=t, reps=1, delay=0.1, muteDelay=0.05 )
-#             myTone.playTone( t, 1, 0.2, 0.05 )
-#             print(t)
-#         myTone.stopTone()
-        self._RPiSpark.Tone.stopTone()
+            self.myTone.playTone( freq=t, reps=1, delay=0.1, muteDelay=0.05 )
+        self.myTone.stopTone()
 
     def _sndTone3Tigers(self):
-        if self._RPiSpark.Tone == None: return
+        if self.myTone == None: return
         delay_2 = 0.075
         delay1 = 0.15
         delay2 = 0.3
@@ -97,12 +93,16 @@ class TestTone(RPiSparkModule):
             {"freq": myTONE[1], "reps": 1, "delay": delay2, "muteDelay": muteDelay1},
         ]
 
-        self._RPiSpark.Tone.playToneList(tone3Tigers)
-        self._RPiSpark.Tone.stopTone()
+        self.myTone.playToneList(tone3Tigers)
+        self.myTone.stopTone()
 
     def setup(self):
         random.seed()
-        self.myScreen = self._RPiSpark.Screen
+        self.myScreen = self.RPiSpark.Screen
+        if self.RPiSpark.Tone != None:
+            self.myTone = self.RPiSpark.Tone
+        else:
+            self.myTone = RPiTonePlayer( self.RPiSparkConfig.SPEAKER )
 
     #Test display
     def run(self):
@@ -112,4 +112,5 @@ class TestTone(RPiSparkModule):
 
         self._sndTone()
         self._sndTone3Tigers()
+        
         print("Tone testting done.")

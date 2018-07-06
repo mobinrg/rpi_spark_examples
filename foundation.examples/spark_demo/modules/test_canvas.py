@@ -198,7 +198,7 @@ class TestCanvas(RPiSparkModule):
 
     def setup(self):
         random.seed()
-        self.myScreen = self._RPiSpark.Screen
+        self.myScreen = self.RPiSpark.Screen
         self.myScreen.clearCanvas()
         self.myScreen.refresh()
 

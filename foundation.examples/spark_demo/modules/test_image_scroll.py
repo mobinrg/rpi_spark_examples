@@ -41,7 +41,7 @@ class TestImageScroll(RPiSparkModule):
     ##
     # Init shake check INT
     def initShakeINT(self):
-        MPU_INT_PIN = self._RPiSparkConfig.ATTITUDE_INT
+        MPU_INT_PIN = self.RPiSparkConfig.ATTITUDE_INT
         GPIO.setup( MPU_INT_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP )
         GPIO.add_event_detect( MPU_INT_PIN, GPIO.RISING, callback=self._shakeDeviceCallback, bouncetime=1 )
         
@@ -50,7 +50,7 @@ class TestImageScroll(RPiSparkModule):
         self._releaseKeyButtons()
 
         #close attitude sensor
-        GPIO.remove_event_detect( self._RPiSparkConfig.ATTITUDE_INT )
+        GPIO.remove_event_detect( self.RPiSparkConfig.ATTITUDE_INT )
         self.myAttitude.disableInt()
         self.myAttitude.sleep()
         
@@ -106,9 +106,9 @@ class TestImageScroll(RPiSparkModule):
 
     def setup(self):
         random.seed()
-        self.myScreen = self._RPiSpark.Screen
-        self.myKeyboard = self._RPiSpark.Keyboard
-        self.myAttitude = self._RPiSpark.Attitude
+        self.myScreen = self.RPiSpark.Screen
+        self.myKeyboard = self.RPiSpark.Keyboard
+        self.myAttitude = self.RPiSpark.Attitude
         self.mySampleFilterA = Sample3AxisMAFilter(10)
 
     #Test Image Scroll

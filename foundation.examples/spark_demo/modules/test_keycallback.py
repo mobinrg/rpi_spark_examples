@@ -24,27 +24,27 @@ class TestKeyCallback(RPiSparkModule):
     def _initKeyButtons(self):
         try:
             self.myKeyboard.configKeyButtons([
-                {"id":self._RPiSparkConfig.BUTTON_ACT_A, "callback":self._callback},
-                {"id":self._RPiSparkConfig.BUTTON_ACT_B, "callback":self._callback},
-                {"id":self._RPiSparkConfig.BUTTON_JOY_UP, "callback":self._callback},
-                {"id":self._RPiSparkConfig.BUTTON_JOY_DOWN, "callback":self._callback},
-                {"id":self._RPiSparkConfig.BUTTON_JOY_LEFT, "callback":self._callback},
-                {"id":self._RPiSparkConfig.BUTTON_JOY_RIGHT, "callback":self._callback},
-                {"id":self._RPiSparkConfig.BUTTON_JOY_OK, "callback":self._callback}
+                {"id":self.RPiSparkConfig.BUTTON_ACT_A, "callback":self._callback},
+                {"id":self.RPiSparkConfig.BUTTON_ACT_B, "callback":self._callback},
+                {"id":self.RPiSparkConfig.BUTTON_JOY_UP, "callback":self._callback},
+                {"id":self.RPiSparkConfig.BUTTON_JOY_DOWN, "callback":self._callback},
+                {"id":self.RPiSparkConfig.BUTTON_JOY_LEFT, "callback":self._callback},
+                {"id":self.RPiSparkConfig.BUTTON_JOY_RIGHT, "callback":self._callback},
+                {"id":self.RPiSparkConfig.BUTTON_JOY_OK, "callback":self._callback}
             ])
         except:
             pass
 #         super(RPiSparkModule, self)._initKeyboard()
-#         self.myKeyboard.setKeyButtonCallback(self._RPiSparkConfig.BUTTON_ACT_A, self._callback )
-#         self.myKeyboard.setKeyButtonCallback(self._RPiSparkConfig.BUTTON_ACT_B, self._callback )
-#         self.myKeyboard.setKeyButtonCallback(self._RPiSparkConfig.BUTTON_JOY_UP, self._callback )
-#         self.myKeyboard.setKeyButtonCallback(self._RPiSparkConfig.BUTTON_JOY_DOWN, self._callback )
+#         self.myKeyboard.setKeyButtonCallback(self.RPiSparkConfig.BUTTON_ACT_A, self._callback )
+#         self.myKeyboard.setKeyButtonCallback(self.RPiSparkConfig.BUTTON_ACT_B, self._callback )
+#         self.myKeyboard.setKeyButtonCallback(self.RPiSparkConfig.BUTTON_JOY_UP, self._callback )
+#         self.myKeyboard.setKeyButtonCallback(self.RPiSparkConfig.BUTTON_JOY_DOWN, self._callback )
         return
 
     def setup(self):
         random.seed()
-        self.myScreen = self._RPiSpark.Screen
-        self.myKeyboard = self._RPiSpark.Keyboard
+        self.myScreen = self.RPiSpark.Screen
+        self.myKeyboard = self.RPiSpark.Keyboard
 
     #Test key callback
     def run(self):

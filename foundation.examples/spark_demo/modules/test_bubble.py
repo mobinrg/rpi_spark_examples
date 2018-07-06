@@ -41,9 +41,9 @@ class TestBubble(RPiSparkModule):
 
     def setup(self):
         random.seed()
-        self.myScreen = self._RPiSpark.Screen
-        self.myKeyboard = self._RPiSpark.Keyboard
-        self.myAttitude = self._RPiSpark.Attitude
+        self.myScreen = self.RPiSpark.Screen
+        self.myKeyboard = self.RPiSpark.Keyboard
+        self.myAttitude = self.RPiSpark.Attitude
 
         # Open attitude with all sensor ( accel, gyro, temp )
         # self.myAttitude.open()

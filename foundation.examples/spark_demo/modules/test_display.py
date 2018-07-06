@@ -28,8 +28,8 @@ class TestDisplay(RPiSparkModule):
 
     def setup(self):
         random.seed()
-        self.myDSP = self._RPiSpark.Screen.Display
-        self.mySCREEN = self._RPiSpark.Screen
+        self.myDSP = self.RPiSpark.Screen.Display
+        self.mySCREEN = self.RPiSpark.Screen
 
     #Test display
     def run(self):

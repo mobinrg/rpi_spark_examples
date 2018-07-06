@@ -16,6 +16,6 @@ def main(argv):
     print(mySpark)
     print(dir(mySpark))
     print(mySpark.version())
- 
+
 if __name__ == "__main__":
    main(sys.argv[1:])

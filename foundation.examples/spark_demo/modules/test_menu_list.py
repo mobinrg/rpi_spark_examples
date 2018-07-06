@@ -113,19 +113,19 @@ class TestMenuList(RPiSparkModule):
     # Key Buttons Process
     #
     def _keyButtonUp(self, channel):
-        if channel == self._RPiSparkConfig.BUTTON_ACT_A:
+        if channel == self.RPiSparkConfig.BUTTON_ACT_A:
             self._actStatus = ACTION_NONE
             return
 
-        if channel in (self._RPiSparkConfig.BUTTON_ACT_B, self._RPiSparkConfig.BUTTON_JOY_OK):
+        if channel in (self.RPiSparkConfig.BUTTON_ACT_B, self.RPiSparkConfig.BUTTON_JOY_OK):
             self._actStatus = ACTION_RUN_MODULE
             return
 
-        if channel == self._RPiSparkConfig.BUTTON_JOY_UP:
+        if channel == self.RPiSparkConfig.BUTTON_JOY_UP:
             self._actStatus = ACTION_MENU_PREV
             return
 
-        if channel == self._RPiSparkConfig.BUTTON_JOY_DOWN:
+        if channel == self.RPiSparkConfig.BUTTON_JOY_DOWN:
             self._actStatus = ACTION_MENU_NEXT
             return
 
@@ -160,67 +160,67 @@ class TestMenuList(RPiSparkModule):
     def runTestModule(self, moduleID):
         #Display
         if moduleID == 100:
-            myTestModule = TestDisplay( self._RPiSparkConfig, self._RPiSpark )
+            myTestModule = TestDisplay( self.RPiSparkConfig, self.RPiSpark )
             myTestModule.run()
             return ACTION_RETURN_MENU
         
         #Buttons
         if moduleID == 101:
-            myTestModule = TestButtons( self._RPiSparkConfig, self._RPiSpark )
+            myTestModule = TestButtons( self.RPiSparkConfig, self.RPiSpark )
             myTestModule.run()
             return ACTION_RETURN_MENU
         
         #Image Scroll
         if moduleID == 102:
-            myTestModule = TestImageScroll( self._RPiSparkConfig, self._RPiSpark )
+            myTestModule = TestImageScroll( self.RPiSparkConfig, self.RPiSpark )
             myTestModule.run()
             return ACTION_RETURN_MENU
             
         #Canvas Draw
         if moduleID == 103:
-            myTestModule = TestCanvas( self._RPiSparkConfig, self._RPiSpark )
+            myTestModule = TestCanvas( self.RPiSparkConfig, self.RPiSpark )
             myTestModule.run()
             return ACTION_RETURN_MENU
 
         #3D sim
         if moduleID == 104:
-            myTestModule = TestSim3D( self._RPiSparkConfig, self._RPiSpark )
+            myTestModule = TestSim3D( self.RPiSparkConfig, self.RPiSpark )
             myTestModule.run()
             return ACTION_RETURN_MENU
 
         #Bubble
         if moduleID == 105:
-            myTestModule = TestBubble( self._RPiSparkConfig, self._RPiSpark )
+            myTestModule = TestBubble( self.RPiSparkConfig, self.RPiSpark )
             myTestModule.run()
             return ACTION_RETURN_MENU
         
         #Attutude
         if moduleID == 106:
-            myTestModule = TestAttitude( self._RPiSparkConfig, self._RPiSpark )
+            myTestModule = TestAttitude( self.RPiSparkConfig, self.RPiSpark )
             myTestModule.run()
             return ACTION_RETURN_MENU
 
         #Sound
         if moduleID == 107:
-            myTestModule = TestSound( self._RPiSparkConfig, self._RPiSpark )
+            myTestModule = TestSound( self.RPiSparkConfig, self.RPiSpark )
             myTestModule.run()
             return ACTION_RETURN_MENU
         
         #Tone
         if moduleID == 112:
-            myTestModule = TestTone( self._RPiSparkConfig, self._RPiSpark )
+            myTestModule = TestTone( self.RPiSparkConfig, self.RPiSpark )
             myTestModule.run()
             return ACTION_RETURN_MENU
         
         #OS Info
         if moduleID == 125:
-            myTestModule = TestOSInfo( self._RPiSparkConfig, self._RPiSpark )
+            myTestModule = TestOSInfo( self.RPiSparkConfig, self.RPiSpark )
             myTestModule.run()
             return ACTION_RETURN_MENU
 
         #About
         if moduleID == 108:
-            myDialog = DialogScreen( self._RPiSparkConfig, self._RPiSpark )
+            myDialog = DialogScreen( self.RPiSparkConfig, self.RPiSpark )
             myDialog.fontName = FONT_NAME
             myDialog.fontSize = FONT_SIZE
             myDialog.showMessage("RPi Spark\nwww.mobinrg.com\nv 1.0.0\n(c) 2018.4", waitKey=True)
@@ -228,7 +228,7 @@ class TestMenuList(RPiSparkModule):
 
         #Exit
         if moduleID == 900:
-            myDialog = DialogScreen( self._RPiSparkConfig, self._RPiSpark )
+            myDialog = DialogScreen( self.RPiSparkConfig, self.RPiSpark )
             myDialog.fontName = FONT_NAME
             myDialog.fontSize = FONT_SIZE
             isExit = myDialog.showYesNo("Are you sure\nto exit?")
@@ -239,13 +239,13 @@ class TestMenuList(RPiSparkModule):
 
         #Test Game Bricka
         if moduleID == 120:
-            myTestModule = TestGameBricka( self._RPiSparkConfig, self._RPiSpark )
+            myTestModule = TestGameBricka( self.RPiSparkConfig, self.RPiSpark )
             myTestModule.run()
             return ACTION_RETURN_MENU
         
         #Test Game Bricka
         if moduleID == 121:
-            myTestModule = Test3DStarfield( self._RPiSparkConfig, self._RPiSpark )
+            myTestModule = Test3DStarfield( self.RPiSparkConfig, self.RPiSpark )
             myTestModule.run()
             return ACTION_RETURN_MENU
         
@@ -255,8 +255,8 @@ class TestMenuList(RPiSparkModule):
         self.myMenuItems = MenuItems()
         self._actStatus = 1
 
-        self.myScreen = self._RPiSpark.Screen
-        self.myKeyboard = self._RPiSpark.Keyboard
+        self.myScreen = self.RPiSpark.Screen
+        self.myKeyboard = self.RPiSpark.Keyboard
 
         #change display buffer color mode to mono
         self.myScreen.changeBufferColorMode("1")
@@ -268,7 +268,7 @@ class TestMenuList(RPiSparkModule):
     #Test display
     def run(self):
         # First show welcome screen
-        myTestModule = TestWelcome( self._RPiSparkConfig, self._RPiSpark )
+        myTestModule = TestWelcome( self.RPiSparkConfig, self.RPiSpark )
         myTestModule.run()
         
         print("----------------------------------------------------------------")
@@ -318,14 +318,14 @@ class TestMenuList(RPiSparkModule):
             if self._actStatus == ACTION_MENU_PREV:
                 self.myMenuItems.previous()
                 self._actStatus = ACTION_DRAW_MENU
-                self._beep()
+                # self._beep()
                 continue
 
             # Next Menu Item
             if self._actStatus == ACTION_MENU_NEXT:
                 self.myMenuItems.next()
                 self._actStatus = ACTION_DRAW_MENU
-                self._beep()
+                # self._beep()
                 continue
 
             # Update menu item
@@ -337,6 +337,6 @@ class TestMenuList(RPiSparkModule):
                 continue
 
         self._releaseKeyButtons()
-        self._sndFinish()
+        # self._sndFinish()
         GPIO.cleanup()
         print("\nTestting done.")

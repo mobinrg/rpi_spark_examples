@@ -59,7 +59,7 @@ class Point3D:
 DRAW_MODE_LINE          = 0
 DRAW_MODE_LINE_BALL     = 1
 
-class TestSim3D(RPiSparkModule):
+class Sim3D(RPiSparkModule):
     myScreen = None
     myAttitude = None
 
@@ -71,15 +71,15 @@ class TestSim3D(RPiSparkModule):
     _viewer_distance = 6
 
     def _keyButtonDown(self, channel):
-        if channel == self._RPiSparkConfig.BUTTON_ACT_A:
+        if channel == self.RPiSparkConfig.BUTTON_ACT_A:
             self._draw_mode = DRAW_MODE_LINE if self._draw_mode != DRAW_MODE_LINE else DRAW_MODE_LINE_BALL 
             return
 
-        if channel == self._RPiSparkConfig.BUTTON_JOY_UP:
+        if channel == self.RPiSparkConfig.BUTTON_JOY_UP:
             self._viewer_fov += 8 if self._viewer_fov + 8 < 128 else 0
             return
         
-        if channel == self._RPiSparkConfig.BUTTON_JOY_DOWN:
+        if channel == self.RPiSparkConfig.BUTTON_JOY_DOWN:
             self._viewer_fov -= 8 if self._viewer_fov - 8 > 0 else 0
             return
 
@@ -103,8 +103,8 @@ class TestSim3D(RPiSparkModule):
         self.angleX, self.angleY, self.angleZ = 0, 0, 0
 
     def setup(self):
-        self.myScreen = self._RPiSpark.Screen
-        self.myAttitude = self._RPiSpark.Attitude
+        self.myScreen = self.RPiSpark.Screen
+        self.myAttitude = self.RPiSpark.Attitude
         self.myAttitude.openWith( accel = True, gyro = False, temp = False, cycle = False )
 
         self._initSimulation()

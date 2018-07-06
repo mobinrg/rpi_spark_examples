@@ -27,7 +27,7 @@ class TestAttitude(RPiSparkModule):
     ##
     # Init shake check INT
     def initShakeINT(self):
-        MPU_INT_PIN = self._RPiSparkConfig.ATTITUDE_INT
+        MPU_INT_PIN = self.RPiSparkConfig.ATTITUDE_INT
         GPIO.setup( MPU_INT_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP )
         GPIO.add_event_detect( MPU_INT_PIN, GPIO.RISING, callback=self._shakeDeviceCallback, bouncetime=20 )
 
@@ -35,7 +35,7 @@ class TestAttitude(RPiSparkModule):
         self.myAttitude.setMotionInt()
         
     def cleanup(self):
-        GPIO.remove_event_detect( self._RPiSparkConfig.ATTITUDE_INT )
+        GPIO.remove_event_detect( self.RPiSparkConfig.ATTITUDE_INT )
         self.myAttitude.disableInt()
         self.myAttitude.sleep()
 
@@ -57,8 +57,8 @@ class TestAttitude(RPiSparkModule):
             draw.text((x,y+ fh * 3), '{} : {:.{prec}f}'.format('z', data["z"], prec=prec), font=self.myFont, fill= 1)
 
     def setup(self):
-        self.myScreen = self._RPiSpark.Screen
-        self.myAttitude = self._RPiSpark.Attitude
+        self.myScreen = self.RPiSpark.Screen
+        self.myAttitude = self.RPiSpark.Attitude
 
         self.mySampleFilterA = Sample3AxisMAFilter(15)
         self.mySampleFilterG = Sample3AxisMAFilter(15)

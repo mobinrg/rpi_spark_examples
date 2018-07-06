@@ -22,20 +22,20 @@ class TestKeyCallbackMenuList(RPiSparkModule):
 
     def _callbackKeyboard(self, channel):
 #         print channel
-        if channel == self._RPiSparkConfig.BUTTON_ACT_A:
+        if channel == self.RPiSparkConfig.BUTTON_ACT_A:
             self._actStatus = 2
             return
  
-        if channel == self._RPiSparkConfig.BUTTON_ACT_B:
+        if channel == self.RPiSparkConfig.BUTTON_ACT_B:
             self._actStatus = 100
             return
  
-        if channel == self._RPiSparkConfig.BUTTON_JOY_LEFT or channel == self._RPiSparkConfig.BUTTON_JOY_UP:
+        if channel == self.RPiSparkConfig.BUTTON_JOY_LEFT or channel == self.RPiSparkConfig.BUTTON_JOY_UP:
 #             self.myMenuItems.previous()
             self._actStatus = 1
             return
  
-        if channel == self._RPiSparkConfig.BUTTON_JOY_RIGHT or channel == self._RPiSparkConfig.BUTTON_JOY_DOWN:
+        if channel == self.RPiSparkConfig.BUTTON_JOY_RIGHT or channel == self.RPiSparkConfig.BUTTON_JOY_DOWN:
 #             self.myMenuItems.next()
             self._actStatus = 1
             return
@@ -43,13 +43,13 @@ class TestKeyCallbackMenuList(RPiSparkModule):
     def _initKeyButtons(self):
         try:
             self.myKeyboard.configKeyButtons([
-                {"id":self._RPiSparkConfig.BUTTON_ACT_A, "callback":self._callbackKeyboard},
-                {"id":self._RPiSparkConfig.BUTTON_ACT_B, "callback":self._callbackKeyboard},
-                {"id":self._RPiSparkConfig.BUTTON_JOY_UP, "callback":self._callbackKeyboard},
-                {"id":self._RPiSparkConfig.BUTTON_JOY_DOWN, "callback":self._callbackKeyboard},
-                {"id":self._RPiSparkConfig.BUTTON_JOY_LEFT, "callback":self._callbackKeyboard},
-                {"id":self._RPiSparkConfig.BUTTON_JOY_RIGHT, "callback":self._callbackKeyboard},
-                {"id":self._RPiSparkConfig.BUTTON_JOY_OK, "callback":self._callbackKeyboard}
+                {"id":self.RPiSparkConfig.BUTTON_ACT_A, "callback":self._callbackKeyboard},
+                {"id":self.RPiSparkConfig.BUTTON_ACT_B, "callback":self._callbackKeyboard},
+                {"id":self.RPiSparkConfig.BUTTON_JOY_UP, "callback":self._callbackKeyboard},
+                {"id":self.RPiSparkConfig.BUTTON_JOY_DOWN, "callback":self._callbackKeyboard},
+                {"id":self.RPiSparkConfig.BUTTON_JOY_LEFT, "callback":self._callbackKeyboard},
+                {"id":self.RPiSparkConfig.BUTTON_JOY_RIGHT, "callback":self._callbackKeyboard},
+                {"id":self.RPiSparkConfig.BUTTON_JOY_OK, "callback":self._callbackKeyboard}
             ])
         except:
             pass
@@ -57,8 +57,8 @@ class TestKeyCallbackMenuList(RPiSparkModule):
 
     def setup(self):
         random.seed()
-        self.myScreen = self._RPiSpark.Screen
-        self.myKeyboard = self._RPiSpark.Keyboard
+        self.myScreen = self.RPiSpark.Screen
+        self.myKeyboard = self.RPiSpark.Keyboard
 
     #Test key callback
     def run(self):
@@ -70,7 +70,7 @@ class TestKeyCallbackMenuList(RPiSparkModule):
                 self._releaseKeyButtons()
                 print("\nEnter Submodule ...")
 
-                myTestModule = TestKeyCallback( self._RPiSparkConfig, self._RPiSpark )
+                myTestModule = TestKeyCallback( self.RPiSparkConfig, self.RPiSpark )
                 myTestModule.run()
                 
                 print("Return Menu List")

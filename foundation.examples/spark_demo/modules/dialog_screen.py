@@ -25,7 +25,7 @@ class DialogScreen(RPiSparkModule):
     fontSize = 12
 
     def drawButtons(self, x, y, aTitle="", bTitle="", aState=0, bState=0):
-        draw = self._RPiSpark.Screen.Canvas
+        draw = self.RPiSpark.Screen.Canvas
         drawBtn(draw, x=x, y=y, outline=255, fill=aState, dire="a")
         drawText(draw, x=x+22, y=y, title = aTitle)
     
@@ -35,7 +35,7 @@ class DialogScreen(RPiSparkModule):
 
     def showYesNo(self, message = ""):
         self.myScreen.clearCanvas()
-        draw = self._RPiSpark.Screen.Canvas
+        draw = self.RPiSpark.Screen.Canvas
         drawMultiLineText(draw, 0,0, text=message, fontName=self.fontName, fontSize = self.fontSize )
         self.drawButtons(10, 50, aTitle = "YES", bTitle = "NO")
         self.myScreen.refresh()
@@ -44,18 +44,18 @@ class DialogScreen(RPiSparkModule):
         result = DialogConst.DIALOG_BUTTON_UNKNOW
         sleep(0.5)
         while True:
-            if self._readKeyButton(self._RPiSparkConfig.BUTTON_ACT_A):
+            if self._readKeyButton(self.RPiSparkConfig.BUTTON_ACT_A):
                 result = DialogConst.DIALOG_BUTTON_YES
                 break
 
-            if self._readKeyButton(self._RPiSparkConfig.BUTTON_ACT_B):
+            if self._readKeyButton(self.RPiSparkConfig.BUTTON_ACT_B):
                 result = DialogConst.DIALOG_BUTTON_NO
                 break
         return result
     
     def showMessage(self, message = "", waitKey = None):
         self.myScreen.clearCanvas()
-        draw = self._RPiSpark.Screen.Canvas
+        draw = self.RPiSpark.Screen.Canvas
         drawMultiLineText(draw, 0,0, text=message, fontName=self.fontName, fontSize = self.fontSize )
         self.myScreen.refresh()
 
@@ -64,11 +64,11 @@ class DialogScreen(RPiSparkModule):
             sleep(0.5)
             while True:
                 if self._readAnyButtonStatus(): break
-#                 if self._readKeyButton(self._RPiSparkConfig.BUTTON_ACT_A):break
-#                 if self._readKeyButton(self._RPiSparkConfig.BUTTON_ACT_B):break        
+#                 if self._readKeyButton(self.RPiSparkConfig.BUTTON_ACT_A):break
+#                 if self._readKeyButton(self.RPiSparkConfig.BUTTON_ACT_B):break        
 
     def setup(self):
-        self.myScreen = self._RPiSpark.Screen
+        self.myScreen = self.RPiSpark.Screen
 
 #     #Show dialog
 #     def run(self):

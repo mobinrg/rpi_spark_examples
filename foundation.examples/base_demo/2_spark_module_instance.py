@@ -17,13 +17,11 @@ class DemoModule(RPiSparkModule):
     def setup(self):
         print("\nCall module's setup() ...\n")
         print("You can inherit and implement your setup code in the setup() function.")
-        pass
     
     def run(self):
         print("\nCall module's run() ...\n")
         print("You can inherit and implement your application code in the run() function.")
         print("This is a simple demo...\n")
-        pass
 
 def main(argv):
     mySpark = initSpark()

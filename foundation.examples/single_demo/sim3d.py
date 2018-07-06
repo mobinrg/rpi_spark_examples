@@ -14,12 +14,12 @@ import sys
 
 from JMRPiFoundations.Skeleton.RPiSparkProvider import initSpark
 from JMRPiFoundations.Devices.rpi_spark_z_1_0_0 import RPiSparkConfig as mySparkConfig
-from modules.sim3d import TestSim3D
+from modules.Sim3D import Sim3D
 
 def main(argv):
     mySpark = initSpark()
-    mySingleApp = TestSim3D( mySparkConfig, mySpark )
+    mySingleApp = Sim3D( mySparkConfig, mySpark )
     mySingleApp.run()
 
 if __name__ == "__main__":
-   main(sys.argv[1:])
+    main(sys.argv[1:])

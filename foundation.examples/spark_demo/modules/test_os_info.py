@@ -69,7 +69,7 @@ class TestOSInfo(RPiSparkModule):
             return
 
     def setup(self):
-        self.myScreen = self._RPiSpark.Screen
+        self.myScreen = self.RPiSpark.Screen
         self.myFont = ImageFont.load_default()
 
     #Test OS Info

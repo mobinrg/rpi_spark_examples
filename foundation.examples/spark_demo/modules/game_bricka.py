@@ -108,7 +108,7 @@ class TestGameBricka(RPiSparkModule):
     myMusicChannel = None
 
     def _keyButtonDown(self, channel):
-        if channel == self._RPiSparkConfig.BUTTON_ACT_A:
+        if channel == self.RPiSparkConfig.BUTTON_ACT_A:
             if self.state == STATE_BALL_IN_PADDLE:
                 self.ball_vel = [ BALL_VEL, -BALL_VEL ]
                 self.state = STATE_PLAYING
@@ -118,11 +118,11 @@ class TestGameBricka(RPiSparkModule):
             self.init_game()
             return
 
-#         if channel == self._RPiSparkConfig.BUTTON_JOY_UP:
+#         if channel == self.RPiSparkConfig.BUTTON_JOY_UP:
 #             self._viewer_fov += 8 if self._viewer_fov < 128 else 128
 #             return
 #
-#         if channel == self._RPiSparkConfig.BUTTON_JOY_DOWN:
+#         if channel == self.RPiSparkConfig.BUTTON_JOY_DOWN:
 #             self._viewer_fov -= 8 if self._viewer_fov > 0 else 0
 #             return
 
@@ -233,9 +233,9 @@ class TestGameBricka(RPiSparkModule):
     def setup(self):
         random.seed()
         self.myMusicNote = MusicNote()
-        self.myScreen = self._RPiSpark.Screen
-        self.myAudio = self._RPiSpark.Audio
-        self.myAttitude = self._RPiSpark.Attitude
+        self.myScreen = self.RPiSpark.Screen
+        self.myAudio = self.RPiSpark.Audio
+        self.myAttitude = self.RPiSpark.Attitude
         self.myAttitude.openWith( accel = True, gyro = False, temp = False, cycle = False )
 
         pygame.init()

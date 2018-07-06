@@ -1,7 +1,7 @@
-RPi Spark Shield Examples
+RPi Spark pHAT Examples
 =======================================
 
-The Raspberry Pi Spark Shield allows you to easily develop interesting applications through the GPIO of Raspberry Pi.
+The Raspberry Pi Spark pHAT let you to easily develop interesting applications through the GPIO of Raspberry Pi.
 
 Examples:
 
@@ -11,8 +11,10 @@ Examples:
 * foundation.examples
 	-- Framework examples
 
+* cli.examples
+	-- CLI examples
 
-Spark Shield Key Features:
+Spark pHAT Key Features:
 
 * 128x64 monochrome OLED
 * Accelerometers
@@ -36,7 +38,7 @@ Drives:
 	- Interrupt Support, Polling Support
 
 * Audio
-	- Provides audio output switch that can play back MP3, WAV, etc. music formats via headphones or speakers
+	- Provides audio output switch that can play back OGG, MP3, WAV, etc. music formats via headphones or speakers
 
 * PWM Tone Player
 	- PWM generates pitch and plays
@@ -63,8 +65,8 @@ History:
 
 Drive Example:
 
-* http://github.com/PowerRocker/rpi_spark_examples
-* http://www.mobinrg.com/resources/rpi_spark/spark_examples.zip
+* http://github.com/mobinrg/rpi_spark_examples
+* http://doc.mobinrg.com/download/rpi_spark/spark_examples.zip
 
 
 Written by Kunpeng Zhang.
@@ -114,7 +116,7 @@ MIT license, all text above must be included in any redistribution
 	-- 中断支持，轮询支持
 
 * 音频
-	-- 提供音频输出开关，能够通过耳机或扬声器回放 MP3，WAV，等音乐格式
+	-- 提供音频输出开关，能够通过耳机或扬声器回放 OGG,MP3，WAV，等音乐格式
 
 * PWM 音调
 	-- PWM 生成音调并且播放
@@ -142,8 +144,8 @@ MIT license, all text above must be included in any redistribution
 
 驱动示例代码:
 
-* http://github.com/PowerRocker/rpi_spark_examples
-* http://www.mobinrg.com/resources/rpi_spark/spark_examples.zip
+* http://github.com/mobinrg/rpi_spark_examples
+* http://doc.mobinrg.com/download/rpi_spark/spark_examples.zip
 
 由 Kunpeng Zhang 撰写。
 MIT许可证，上述所有文本必须包含在任何重新发布中
@@ -191,7 +193,7 @@ MIT许可证，上述所有文本必须包含在任何重新发布中
 	-- 中斷支持，輪詢支持
 
 * 音頻
-	-- 提供音頻輸出開關，能夠通過耳機或揚聲器回放 MP3，WAV，等音樂格式
+	-- 提供音頻輸出開關，能夠通過耳機或揚聲器回放 OGG,MP3，WAV，等音樂格式
 
 * PWM 音調
 	-- PWM 生成音調並且播放
@@ -219,8 +221,8 @@ MIT许可证，上述所有文本必须包含在任何重新发布中
 
 驅動示例源碼:
 
-* http://github.com/PowerRocker/rpi_spark_examples
-* http://www.mobinrg.com/resources/rpi_spark/spark_examples.zip
+* http://github.com/mobinrg/rpi_spark_examples
+* http://doc.mobinrg.com/download/rpi_spark/spark_examples.zip
 
 
 由 Kunpeng Zhang 撰寫。

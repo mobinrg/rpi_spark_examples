@@ -36,7 +36,7 @@ class TestWelcome(RPiSparkModule):
 #         sleep(0.1)
 
     def setup(self):
-        self.myScreen = self._RPiSpark.Screen
+        self.myScreen = self.RPiSpark.Screen
 
     #Test display
     def run(self):
@@ -62,7 +62,7 @@ class TestWelcome(RPiSparkModule):
 #         self.sndStart()
         while True:
             if self._readAnyButtonStatus(): break
-#             if self._readKeyButton(self._RPiSparkConfig.BUTTON_ACT_A):break
-#             if self._readKeyButton(self._RPiSparkConfig.BUTTON_ACT_B):break
+#             if self._readKeyButton(self.RPiSparkConfig.BUTTON_ACT_A):break
+#             if self._readKeyButton(self.RPiSparkConfig.BUTTON_ACT_B):break
 
 #         self.myScreen.Display.scrollOff()

@@ -76,11 +76,11 @@ class TestSound(RPiSparkModule):
     _actStatus = 0
     
     def _keyButtonDown(self, channel):
-        if channel == self._RPiSparkConfig.BUTTON_ACT_A:
+        if channel == self.RPiSparkConfig.BUTTON_ACT_A:
             self._actStatus = ACTION_SWITCH_SOUND_MODE
             return
  
-        if channel == self._RPiSparkConfig.BUTTON_ACT_B:
+        if channel == self.RPiSparkConfig.BUTTON_ACT_B:
             self._actStatus = ACTION_EXIT
             return
 
@@ -140,9 +140,9 @@ class TestSound(RPiSparkModule):
     def setup(self):
         pygame.mixer.init()
         random.seed()
-        self.myScreen = self._RPiSpark.Screen
-        self.myKeyboard = self._RPiSpark.Keyboard
-        self.myAudio = self._RPiSpark.Audio
+        self.myScreen = self.RPiSpark.Screen
+        self.myKeyboard = self.RPiSpark.Keyboard
+        self.myAudio = self.RPiSpark.Audio
         self.mySoundMode = random.randint(0, len(SOUND_ENV)-1)
 
     #Test Sound

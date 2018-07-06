@@ -24,8 +24,8 @@ class TestButtons(RPiSparkModule):
         self.myScreen.Display.setContrast(self.dispContrast)
 
     def setup(self):
-        self.myScreen = self._RPiSpark.Screen
-        self.myKeyboard = self._RPiSpark.Keyboard
+        self.myScreen = self.RPiSpark.Screen
+        self.myKeyboard = self.RPiSpark.Keyboard
 
         #change display buffer color mode to mono
         self.myScreen.changeBufferColorMode("1")
@@ -41,39 +41,39 @@ class TestButtons(RPiSparkModule):
             #################################
             # Draw button status
             #
-            draw = self._RPiSpark.Screen.Canvas
-            pressBtnA = 0 if self.myKeyboard.readKeyButton(self._RPiSparkConfig.BUTTON_ACT_A) else 255 
+            draw = self.RPiSpark.Screen.Canvas
+            pressBtnA = 0 if self.myKeyboard.readKeyButton(self.RPiSparkConfig.BUTTON_ACT_A) else 255 
             drawBtn(draw, x=96, y=32, outline=255, fill=pressBtnA, dire="a" )
 
-            pressBtnB = 0 if self.myKeyboard.readKeyButton(self._RPiSparkConfig.BUTTON_ACT_B) else 255
+            pressBtnB = 0 if self.myKeyboard.readKeyButton(self.RPiSparkConfig.BUTTON_ACT_B) else 255
             drawBtn(draw, x=112, y=12, outline=255, fill=pressBtnB, dire="b")
 
-            pressJoyL = 0 if self.myKeyboard.readKeyButton(self._RPiSparkConfig.BUTTON_JOY_LEFT) else 255
+            pressJoyL = 0 if self.myKeyboard.readKeyButton(self.RPiSparkConfig.BUTTON_JOY_LEFT) else 255
             drawBtn(draw, x=1, y=19, outline=255, fill=pressJoyL, dire="left")
 
-            pressJoyU = 0 if self.myKeyboard.readKeyButton(self._RPiSparkConfig.BUTTON_JOY_UP) else 255
+            pressJoyU = 0 if self.myKeyboard.readKeyButton(self.RPiSparkConfig.BUTTON_JOY_UP) else 255
             drawBtn(draw, x=19, y=1, outline=255, fill=pressJoyU, dire="up")
 
-            pressJoyR = 0 if self.myKeyboard.readKeyButton(self._RPiSparkConfig.BUTTON_JOY_RIGHT) else 255
+            pressJoyR = 0 if self.myKeyboard.readKeyButton(self.RPiSparkConfig.BUTTON_JOY_RIGHT) else 255
             drawBtn(draw, x=37, y=19, outline=255, fill=pressJoyR, dire="right")
 
-            pressJoyD = 0 if self.myKeyboard.readKeyButton(self._RPiSparkConfig.BUTTON_JOY_DOWN) else 255
+            pressJoyD = 0 if self.myKeyboard.readKeyButton(self.RPiSparkConfig.BUTTON_JOY_DOWN) else 255
             drawBtn(draw, x=19, y=37, outline=255, fill=pressJoyD, dire="down")
 
-            pressJoyC = 0 if self.myKeyboard.readKeyButton(self._RPiSparkConfig.BUTTON_JOY_OK) else 255
+            pressJoyC = 0 if self.myKeyboard.readKeyButton(self.RPiSparkConfig.BUTTON_JOY_OK) else 255
             drawBtn(draw, x=19, y=19, outline=255, fill=pressJoyC, dire="center")
 
             self.myScreen.refresh()
 
             # Change Contrast
-            if self.myKeyboard.readKeyButton(self._RPiSparkConfig.BUTTON_JOY_UP) == False:
+            if self.myKeyboard.readKeyButton(self.RPiSparkConfig.BUTTON_JOY_UP) == False:
                 self._changeContrast(True)
 
-            if self.myKeyboard.readKeyButton(self._RPiSparkConfig.BUTTON_JOY_DOWN) == False:
+            if self.myKeyboard.readKeyButton(self.RPiSparkConfig.BUTTON_JOY_DOWN) == False:
                 self._changeContrast(False)
 
             # Press Button A and Joy UP to exit
-            if self.myKeyboard.readKeyButton(self._RPiSparkConfig.BUTTON_ACT_A) == False and self.myKeyboard.readKeyButton(self._RPiSparkConfig.BUTTON_JOY_UP) == False:  
+            if self.myKeyboard.readKeyButton(self.RPiSparkConfig.BUTTON_ACT_A) == False and self.myKeyboard.readKeyButton(self.RPiSparkConfig.BUTTON_JOY_UP) == False:  
                 break
 
         print("Button testting done.")

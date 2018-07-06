@@ -131,7 +131,7 @@ class demo:
  
     def _readExitButtonStatus(self):
         """!
-            Read Exit action ( buttn A and Joy UP press down same time )
+            Read Exit action ( button A and Joy UP press down same time )
         """
         pressA = self._readKeyButton(CONFIG_KEY.BUTTON_ACT_A)
         pressUp = self._readKeyButton(CONFIG_KEY.BUTTON_JOY_UP)

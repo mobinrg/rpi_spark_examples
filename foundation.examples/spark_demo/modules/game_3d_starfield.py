@@ -37,15 +37,15 @@ class Test3DStarfield(RPiSparkModule):
     myAttitude  = None
     
     def _keyButtonDown(self, channel):
-        if channel == self._RPiSparkConfig.BUTTON_ACT_A:
+        if channel == self.RPiSparkConfig.BUTTON_ACT_A:
 #             self._draw_mode = DRAW_MODE_LINE if self._draw_mode != DRAW_MODE_LINE else DRAW_MODE_LINE_BALL 
             return
 
-        if channel == self._RPiSparkConfig.BUTTON_JOY_UP:
+        if channel == self.RPiSparkConfig.BUTTON_JOY_UP:
             self._speed += 1 if self._speed + 1 < 9 else 0
             return
         
-        if channel == self._RPiSparkConfig.BUTTON_JOY_DOWN:
+        if channel == self.RPiSparkConfig.BUTTON_JOY_DOWN:
             self._speed -= 1 if self._speed - 1 > 0 else 0
             return
 
@@ -81,8 +81,8 @@ class Test3DStarfield(RPiSparkModule):
                     self.myScreen.Canvas.line((x0,y0, x,y), randint(0,1), randint(1,2))
 
     def setup(self):
-        self.myScreen = self._RPiSpark.Screen
-        self.myAttitude = self._RPiSpark.Attitude
+        self.myScreen = self.RPiSpark.Screen
+        self.myAttitude = self.RPiSpark.Attitude
         self.myAttitude.openWith( accel = True, gyro = False, temp = False, cycle = False )
 
         pygame.init()
