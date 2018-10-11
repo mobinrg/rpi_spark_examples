@@ -63,7 +63,7 @@ class TestBubble(RPiSparkModule):
     #Run Bubble
     def run(self):
         print("Press button A and Joy Up to exit testting ...")
-        self._initKeyButtons("QUERY")
+        self.initKeyButtons("QUERY")
 
         bubbleList = []
         sW, sH = self.myScreen.getDisplaySize()
@@ -74,7 +74,7 @@ class TestBubble(RPiSparkModule):
             #################################
             # Button status read
             #
-            if self._readExitButtonStatus(): break
+            if self.readExitButtonStatus(): break
             self.clock.tick(26)
 
             rawAccel = self.myAttitude.getAccelData( raw = False )
@@ -110,5 +110,5 @@ class TestBubble(RPiSparkModule):
 
             self.myScreen.refresh()
 
-        self._releaseKeyButtons()  #reset keyboard int
+        self.releaseKeyButtons()  #reset keyboard int
         print("Bubble testting done.")

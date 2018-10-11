@@ -9,7 +9,6 @@
 import random
 import os.path
 from PIL import Image
-from PIL import ImageFont
 from time import sleep
 
 from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
@@ -27,10 +26,7 @@ class TestTone(RPiSparkModule):
     myTone = None
     
     def drawToneMode(self, y, toneMode):
-        font = ImageFont.truetype(FONT_NAME, FONT_SIZE)
-        fw, fh = font.getsize(toneMode)
-        self.myScreen.Canvas.rectangle( (0, y, 128, y + fh + 5), fill= 0, outline= 0)
-        self.myScreen.Canvas.text( ((128-fw)/2, y), toneMode, font=font, fill= 1)
+        self.myScreen.write(toneMode, xy=(0, y), fontName=FONT_NAME, fontSize=FONT_SIZE, screenCenter=True )
 
     def _sndTone(self):
         if self.myTone == None: return

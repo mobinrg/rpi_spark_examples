@@ -21,7 +21,7 @@ class TestKeyCallback(RPiSparkModule):
         if channel == 23: self._actStatus = 100
         print(self.__module__, " -- " ,channel)
 
-    def _initKeyButtons(self):
+    def initKeyButtons(self):
         try:
             self.myKeyboard.configKeyButtons([
                 {"id":self.RPiSparkConfig.BUTTON_ACT_A, "callback":self._callback},
@@ -48,7 +48,7 @@ class TestKeyCallback(RPiSparkModule):
 
     #Test key callback
     def run(self):
-        self._initKeyButtons()
+        self.initKeyButtons()
         
         while True:
             if self._actStatus == 100:
@@ -56,6 +56,6 @@ class TestKeyCallback(RPiSparkModule):
                 break
             pass
         
-        self._releaseKeyButtons()
+        self.releaseKeyButtons()
         print ("RESET Key", self.__module__)
         

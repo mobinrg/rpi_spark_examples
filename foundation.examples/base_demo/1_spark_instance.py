@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# RPi Spark Base Demo
+# RPi-Spark Base Demo
 #    #01 Create Spark Instance
 #
 # Author: Kunpeng Zhang

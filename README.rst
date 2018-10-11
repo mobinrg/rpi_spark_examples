@@ -1,7 +1,7 @@
 RPi Spark pHAT Examples
 =======================================
 
-The Raspberry Pi Spark pHAT let you to easily develop interesting applications through the GPIO of Raspberry Pi.
+The RPi-Spark pHAT let you to easily develop interesting applications through the GPIO of Raspberry Pi.
 
 Examples:
 
@@ -21,10 +21,10 @@ Spark pHAT Key Features:
 * Gyroscopes
 * Thermometer
 * 5-way joystick
-* 2 action buttons
+* 2 push buttons
 * 3.5mm stereo headphone jack
 * 1W speaker
-* 20 extended GPIO pads
+* 19 extended GPIO pads
 
 Drives:
 
@@ -65,9 +65,7 @@ History:
 
 Drive Example:
 
-* http://github.com/mobinrg/rpi_spark_examples
-* http://doc.mobinrg.com/download/rpi_spark/spark_examples.zip
-
+* https://github.com/mobinrg/rpi_spark_examples
 
 Written by Kunpeng Zhang.
 MIT license, all text above must be included in any redistribution
@@ -101,7 +99,7 @@ MIT license, all text above must be included in any redistribution
 * 2个动作按键
 * 3.5mm 立体声耳机插座
 * 1W 扬声器
-* 20 个扩展 GPIO 焊盘
+* 19 个扩展 GPIO 焊盘
 
 
 包含的驱动：
@@ -144,8 +142,7 @@ MIT license, all text above must be included in any redistribution
 
 驱动示例代码:
 
-* http://github.com/mobinrg/rpi_spark_examples
-* http://doc.mobinrg.com/download/rpi_spark/spark_examples.zip
+* https://github.com/mobinrg/rpi_spark_examples
 
 由 Kunpeng Zhang 撰写。
 MIT许可证，上述所有文本必须包含在任何重新发布中
@@ -178,7 +175,7 @@ MIT许可证，上述所有文本必须包含在任何重新发布中
 * 2個動作按鍵
 * 3.5mm 立體聲耳機插座
 * 1W 揚聲器
-* 20 個擴展 GPIO 焊盤
+* 19 個擴展 GPIO 焊盤
 
 
 包含的驅動：
@@ -221,8 +218,7 @@ MIT许可证，上述所有文本必须包含在任何重新发布中
 
 驅動示例源碼:
 
-* http://github.com/mobinrg/rpi_spark_examples
-* http://doc.mobinrg.com/download/rpi_spark/spark_examples.zip
+* https://github.com/mobinrg/rpi_spark_examples
 
 
 由 Kunpeng Zhang 撰寫。

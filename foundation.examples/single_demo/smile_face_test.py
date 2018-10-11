@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# RPi Spark Single Demo
+# RPi-Spark Single Demo
 #
 # Show mode: Button A 
 # Field of vision: Joy Up and Down 

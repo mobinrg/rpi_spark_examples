@@ -107,7 +107,7 @@ class TestGameBricka(RPiSparkModule):
     myMusicNote = None
     myMusicChannel = None
 
-    def _keyButtonDown(self, channel):
+    def onKeyButtonDown(self, channel):
         if channel == self.RPiSparkConfig.BUTTON_ACT_A:
             if self.state == STATE_BALL_IN_PADDLE:
                 self.ball_vel = [ BALL_VEL, -BALL_VEL ]
@@ -212,7 +212,7 @@ class TestGameBricka(RPiSparkModule):
     def show_stats(self):
         if self.font:
             txt = " LIVES: " + str(self.lives) + " SCORE: " + str(self.score)
-            self.myScreen.Canvas.text( (0, 0 ), txt.upper(),  font=self.font, fill= 1 )
+            self.myScreen.write(txt.upper())
             pass
 
     def show_message( self, message ):
@@ -248,7 +248,7 @@ class TestGameBricka(RPiSparkModule):
         self.myAudio.on()
         pygame.mixer.init()
         self.lastAccelMA_X = MovingAvgCalculator(15)
-        self._initKeyButtons("INT")
+        self.initKeyButtons("INT")
 
         self.myMusicNote.playBgMusic( self.myMusicNote.getBgFile( MUSIC_BG_FILE ) )
 
@@ -256,7 +256,7 @@ class TestGameBricka(RPiSparkModule):
             #################################
             # Button status read
             # Button A + Joy Up to quit game
-            if self._readExitButtonStatus(): break
+            if self.readExitButtonStatus(): break
 
             self.clock.tick(36)
             self.myScreen.clear()
@@ -288,6 +288,6 @@ class TestGameBricka(RPiSparkModule):
 
             self.myScreen.refresh()
 
-        self._releaseKeyButtons()  #reset keyboard int
+        self.releaseKeyButtons()  #reset keyboard int
         pygame.mixer.music.stop()
         self.myAudio.off()

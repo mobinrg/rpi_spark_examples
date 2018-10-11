@@ -40,7 +40,7 @@ class TestKeyCallbackMenuList(RPiSparkModule):
             self._actStatus = 1
             return
  
-    def _initKeyButtons(self):
+    def initKeyButtons(self):
         try:
             self.myKeyboard.configKeyButtons([
                 {"id":self.RPiSparkConfig.BUTTON_ACT_A, "callback":self._callbackKeyboard},
@@ -62,12 +62,12 @@ class TestKeyCallbackMenuList(RPiSparkModule):
 
     #Test key callback
     def run(self):
-        self._initKeyButtons()
+        self.initKeyButtons()
 
         while True:
             # run submoudle
             if self._actStatus == 2:
-                self._releaseKeyButtons()
+                self.releaseKeyButtons()
                 print("\nEnter Submodule ...")
 
                 myTestModule = TestKeyCallback( self.RPiSparkConfig, self.RPiSpark )

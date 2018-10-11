@@ -30,10 +30,8 @@ class TestCanvas(RPiSparkModule):
             # Write two lines of text.
             tX = random.randint(0, (sW-10))
             tY = random.randint(0, (sH-10))
-            if random.randint(0, 1) == 1:
-                screen.Canvas.text((tX, tY),  "Hello World!",  font=DEF_FONT, fill=fillColor)
-            else:
-                screen.Canvas.text((tX, tY), "Welcome ", font=DEF_FONT, fill=fillColor)
+            txt = "Hello World!" if random.randint(0, 1) == 1 else "Welcome"
+            self.myScreen.write(txt, xy=(tX, tY), fill=fillColor)
 
     def drawShape(self, screen ):
         sW, sH = screen.getDisplaySize()
@@ -95,7 +93,7 @@ class TestCanvas(RPiSparkModule):
             #################################
             # Button status read
             #
-            if self._readExitButtonStatus(): return True
+            if self.readExitButtonStatus(): return True
 
         sleep(1)
 
@@ -105,7 +103,7 @@ class TestCanvas(RPiSparkModule):
             #################################
             # Button status read
             #
-            if self._readExitButtonStatus(): return True
+            if self.readExitButtonStatus(): return True
             
         return False
 
@@ -117,7 +115,7 @@ class TestCanvas(RPiSparkModule):
             #################################
             # Button status read
             #
-            if self._readExitButtonStatus(): return True
+            if self.readExitButtonStatus(): return True
 
         for x in reversed(range(0, 128, 5)):
             screen.Canvas.line( (0,0, x, 64 ), 1, 1)
@@ -125,7 +123,7 @@ class TestCanvas(RPiSparkModule):
             #################################
             # Button status read
             #
-            if self._readExitButtonStatus(): return True
+            if self.readExitButtonStatus(): return True
 
         for x in range(0, 128, 5):
             screen.Canvas.line( (0,0, x, 64 ), 0, 1)
@@ -133,7 +131,7 @@ class TestCanvas(RPiSparkModule):
             #################################
             # Button status read
             #
-            if self._readExitButtonStatus(): return True
+            if self.readExitButtonStatus(): return True
 
         for y in reversed(range(0, 64, 5)):
             screen.Canvas.line( (0,0, 128, y ), 0, 1)
@@ -141,7 +139,7 @@ class TestCanvas(RPiSparkModule):
             #################################
             # Button status read
             #
-            if self._readExitButtonStatus(): return True
+            if self.readExitButtonStatus(): return True
             
         return False
             
@@ -153,7 +151,7 @@ class TestCanvas(RPiSparkModule):
             #################################
             # Button status read
             #
-            if self._readExitButtonStatus(): return True
+            if self.readExitButtonStatus(): return True
         sleep(1)
         for x in reversed(range(2, 64, 4)):
             screen.Canvas.arc( (64 - x, 0 - x, 64 + x, 0 + x), 0, 180, 0)
@@ -162,7 +160,7 @@ class TestCanvas(RPiSparkModule):
             #################################
             # Button status read
             #
-            if self._readExitButtonStatus(): return True
+            if self.readExitButtonStatus(): return True
 
         return False
             
@@ -180,7 +178,7 @@ class TestCanvas(RPiSparkModule):
             #################################
             # Button status read
             #
-            if self._readExitButtonStatus(): return True
+            if self.readExitButtonStatus(): return True
             
         for x in range(0, 128, 1):
             xt = x / 3.14159
@@ -192,7 +190,7 @@ class TestCanvas(RPiSparkModule):
             #################################
             # Button status read
             #
-            if self._readExitButtonStatus(): return True
+            if self.readExitButtonStatus(): return True
             
         return False
 
@@ -205,14 +203,14 @@ class TestCanvas(RPiSparkModule):
     #Test canvas
     def run(self):
         print("Press button A and Joy Up to exit testting ...")
-        self._initKeyButtons("QUERY")
+        self.initKeyButtons("QUERY")
 
         drawMode = 0
         while True:
             #################################
             # Button status read
             #
-            if self._readExitButtonStatus(): break
+            if self.readExitButtonStatus(): break
 
             if drawMode == 0: 
                 isBreak = self.drawEllipse(self.myScreen)

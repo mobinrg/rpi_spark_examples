@@ -75,7 +75,7 @@ class TestOSInfo(RPiSparkModule):
     #Test OS Info
     def run(self):
         print("Press button A and Joy Up to exit testting ...")
-        self._initKeyButtons("QUERY")
+        self.initKeyButtons("QUERY")
 
         self.myScreen.clearCanvas()
         self.displayData(20,28, "Loading ...", "")
@@ -89,7 +89,7 @@ class TestOSInfo(RPiSparkModule):
             #################################
             # Button status read
             #
-            if self._readExitButtonStatus(): break
+            if self.readExitButtonStatus(): break
             
             if self._info_new:
                 self.myScreen.clearCanvas()

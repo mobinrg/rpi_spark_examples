@@ -36,7 +36,7 @@ class Test3DStarfield(RPiSparkModule):
     myScreen    = None
     myAttitude  = None
     
-    def _keyButtonDown(self, channel):
+    def onKeyButtonDown(self, channel):
         if channel == self.RPiSparkConfig.BUTTON_ACT_A:
 #             self._draw_mode = DRAW_MODE_LINE if self._draw_mode != DRAW_MODE_LINE else DRAW_MODE_LINE_BALL 
             return
@@ -98,7 +98,7 @@ class Test3DStarfield(RPiSparkModule):
         print("----------------------------------------------------------------")
         print("Starfield ...")
         print("Change Speed: Joy Up and Down    Exit: Joy Up and button A")
-        self._initKeyButtons("INT")
+        self.initKeyButtons("INT")
 
         ScreenW, ScreenH = self.myScreen.Display.width, self.myScreen.Display.height
         originX = ScreenW / 2
@@ -118,7 +118,7 @@ class Test3DStarfield(RPiSparkModule):
             #################################
             # Button status read
             #
-            if self._readExitButtonStatus(): break
+            if self.readExitButtonStatus(): break
 
             #################################
             # Draw stars
@@ -133,4 +133,4 @@ class Test3DStarfield(RPiSparkModule):
             self.myScreen.refresh()
 
         self.myAttitude.sleep()
-        self._releaseKeyButtons()  #reset keyboard int
+        self.releaseKeyButtons()  #reset keyboard int

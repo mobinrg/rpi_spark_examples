@@ -70,7 +70,7 @@ class Sim3D(RPiSparkModule):
     # 2 ~ 10
     _viewer_distance = 6
 
-    def _keyButtonDown(self, channel):
+    def onKeyButtonDown(self, channel):
         if channel == self.RPiSparkConfig.BUTTON_ACT_A:
             self._draw_mode = DRAW_MODE_LINE if self._draw_mode != DRAW_MODE_LINE else DRAW_MODE_LINE_BALL 
             return
@@ -115,7 +115,7 @@ class Sim3D(RPiSparkModule):
         print("-----------------------------------------------------")
         print("Show mode: button A | Field of vision: Joy Up and Down | Exit: button A + Joy Up")
 
-        self._initKeyButtons("INT")
+        self.initKeyButtons("INT")
         #change display buffer color mode to RGB
         self.myScreen.changeBufferColorMode("RGB")
 
@@ -129,7 +129,7 @@ class Sim3D(RPiSparkModule):
             #################################
             # Button status read
             #
-            if self._readExitButtonStatus(): break
+            if self.readExitButtonStatus(): break
 
             self.clock.tick(36)
             self.myScreen.clear()
@@ -162,4 +162,4 @@ class Sim3D(RPiSparkModule):
             # self.angleZ += round(lastAccelMA["z"], 1) * 2
             self.myScreen.refresh()
 
-        self._releaseKeyButtons()  #reset keyboard int
+        self.releaseKeyButtons()  #reset keyboard int

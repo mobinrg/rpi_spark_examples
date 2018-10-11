@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # 
-# RPi Spark Demo
+# RPi-Spark Demo
 # 
 # Author: Kunpeng Zhang
 # 2018.4.09

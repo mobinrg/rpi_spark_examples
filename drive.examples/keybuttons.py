@@ -51,33 +51,33 @@ class demo:
         if keyBtn == CONFIG_KEY.BUTTON_JOY_OK: return "JOY_CENTER"
         return "UNKNOW"
 
-    def _keyButtonDown(self, channel):
+    def onKeyButtonDown(self, channel):
         print("DOWN:\t{}".format(self._getKeyButtonName(channel)))
         pass
 
-    def _keyButtonUp(self, channel):
+    def onKeyButtonUp(self, channel):
         print("UP:\t{}\n".format(self._getKeyButtonName(channel)))
         pass
 
     def _callbackKeyButton(self, channel):
         """!
-            Key button interrupt event callback function
-            Inherit this method to implement your want
+        Key button interrupt event callback function
+        Inherit this method to implement your want
         """
         if self._myKey.readKeyButton(channel) == 0:
-            self._keyButtonDown(channel)
+            self.onKeyButtonDown(channel)
             return
 
         if self._myKey.readKeyButton(channel) == 1:
-            self._keyButtonUp(channel)
+            self.onKeyButtonUp(channel)
             return
 
-    def _initKeyButtons(self, mode = "INT"):
+    def initKeyButtons(self, mode = "INT"):
         """!
-            Init all key buttons interrupt events or query mode. 
-            Inherit the _keyButtonDown and _keyButtonUp to implement your want
-    
-            @param mode: Can be { "INT" | "QUERY" }, default is "INT" 
+        Init all key buttons interrupt events or query mode. 
+        Inherit the onKeyButtonDown and onKeyButtonUp to implement your want
+
+        @param mode: Can be { "INT" | "QUERY" }, default is "INT" 
         """
         if mode.upper() == "INT":
             try:
@@ -106,7 +106,7 @@ class demo:
                 {"id":CONFIG_KEY.BUTTON_JOY_RIGHT, "callback":None}
             ])
      
-    def _releaseKeyButtons(self):
+    def releaseKeyButtons(self):
         """!
             Release all key button events
         """
@@ -120,32 +120,32 @@ class demo:
             CONFIG_KEY.BUTTON_JOY_OK
         ])
  
-    def _readKeyButton(self, keyBtn):
+    def readKeyButton(self, keyBtn):
         """!
-            Read key button status, return 0 / 1
+        Read key button status, return 0 / 1
         """
         if self._myKey.readKeyButton( keyBtn ) == 0:
             sleep(0.02)
             return 0 if self._myKey.readKeyButton( keyBtn ) else 1
         return 0
  
-    def _readExitButtonStatus(self):
+    def readExitButtonStatus(self):
         """!
-            Read Exit action ( button A and Joy UP press down same time )
+        Read Exit action ( button A and Joy UP press down same time )
         """
-        pressA = self._readKeyButton(CONFIG_KEY.BUTTON_ACT_A)
-        pressUp = self._readKeyButton(CONFIG_KEY.BUTTON_JOY_UP)
+        pressA = self.readKeyButton(CONFIG_KEY.BUTTON_ACT_A)
+        pressUp = self.readKeyButton(CONFIG_KEY.BUTTON_JOY_UP)
         return pressA and pressUp
 
     def run(self):
         print("\nPress any key button to test ...\n < JOY UP + Button A to Exit >\n\n")
-        self._initKeyButtons("INT")
+        self.initKeyButtons("INT")
 
         while True:
-            if self._readExitButtonStatus(): break
+            if self.readExitButtonStatus(): break
             pass
 
-        self._releaseKeyButtons()
+        self.releaseKeyButtons()
         GPIO.cleanup()
 
 if __name__ == "__main__":

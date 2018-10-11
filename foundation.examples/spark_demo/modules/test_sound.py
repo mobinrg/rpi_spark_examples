@@ -11,7 +11,6 @@ import os.path
 import pygame
 from pygame.locals import *
 from PIL import Image
-from PIL import ImageFont
 from time import sleep
 from JMRPiFoundations.Skeleton.RPiSparkModule import RPiSparkModule
 from modules.spark_module_helper import drawBtn
@@ -75,7 +74,7 @@ class TestSound(RPiSparkModule):
     mySoundMode = 0
     _actStatus = 0
     
-    def _keyButtonDown(self, channel):
+    def onKeyButtonDown(self, channel):
         if channel == self.RPiSparkConfig.BUTTON_ACT_A:
             self._actStatus = ACTION_SWITCH_SOUND_MODE
             return
@@ -131,11 +130,9 @@ class TestSound(RPiSparkModule):
         drawText(draw, x=bX+22, y=y,title="EXIT")
     
     def drawSoundMode(self, y, soundMode):
-        font = ImageFont.truetype(FONT_NAME, FONT_SIZE)
         modeTitle = SOUND_ENV[soundMode]["title"]
-        fw, fh = font.getsize(modeTitle)
-        self.myScreen.Canvas.rectangle( (0, y, 128, y + fh + 5), fill= 0, outline= 0)
-        self.myScreen.Canvas.text( ((128-fw)/2, y), modeTitle, font=font, fill= 1)
+        self.myScreen.Canvas.rectangle( (0, y, 128, y + 40), fill= 0, outline= 0)
+        self.myScreen.write(modeTitle, xy=(0, y), fontName=FONT_NAME, fontSize=FONT_SIZE, screenCenter=True)
 
     def setup(self):
         pygame.mixer.init()
@@ -147,7 +144,7 @@ class TestSound(RPiSparkModule):
 
     #Test Sound
     def run(self):
-        self._initKeyButtons("INT")
+        self.initKeyButtons("INT")
         self.myAudio.on()
         somethingConfig = self.getRandomSomethingConfig(self.mySoundMode)
         myChannel = self.playSomething( self.getSoundFilePath(somethingConfig["filename"]), 
@@ -190,6 +187,6 @@ class TestSound(RPiSparkModule):
 
         myChannel.stop()
         pygame.mixer.music.stop()
-        self._releaseKeyButtons()  #reset keyboard int
+        self.releaseKeyButtons()  #reset keyboard int
         self.myAudio.off()
         print("Sound playback example done.")

@@ -107,12 +107,12 @@ class TestMenuList(RPiSparkModule):
     _actStatus = ACTION_NONE
     
     def _sndFinish(self):
-        self._beepTone(5, 0.05)
+        self.beepTone(5, 0.05)
 
     ##########################################
     # Key Buttons Process
     #
-    def _keyButtonUp(self, channel):
+    def onKeyButtonUp(self, channel):
         if channel == self.RPiSparkConfig.BUTTON_ACT_A:
             self._actStatus = ACTION_NONE
             return
@@ -148,11 +148,10 @@ class TestMenuList(RPiSparkModule):
             self.myScreen._buffer.paste(icon, (16, 0, 112, 54))
 
         # Load default font.
-#         font = ImageFont.load_default()
         font = ImageFont.truetype(FONT_NAME, FONT_SIZE)
         fw, fh = font.getsize( menuItem["title"].upper() )
         tX = 0; tY = 54
-        self.myScreen.Canvas.text((tX + ((titleW-fw)/2), tY + (titleH-fh)/2),  menuItem["title"].upper(),  font=font, fill= 1 )
+        self.myScreen.write( menuItem["title"].upper(), xy=(0, tY + (titleH-fh)/2), font=font, screenCenter=True )
 
     ##########################################
     # Sub Module Run 
@@ -223,7 +222,7 @@ class TestMenuList(RPiSparkModule):
             myDialog = DialogScreen( self.RPiSparkConfig, self.RPiSpark )
             myDialog.fontName = FONT_NAME
             myDialog.fontSize = FONT_SIZE
-            myDialog.showMessage("RPi Spark\nwww.mobinrg.com\nv 1.0.0\n(c) 2018.4", waitKey=True)
+            myDialog.showMessage("RPi-Spark\nwww.mobinrg.com\nv 1.0.0\n(c) 2018.4", waitKey=True)
             return ACTION_RETURN_MENU
 
         #Exit
@@ -275,7 +274,7 @@ class TestMenuList(RPiSparkModule):
         print("Select a module to test ...")
         print("Switch module: Joy Up and Down | Joy Left and Right    Run: button B")
 
-        self._initKeyButtons()
+        self.initKeyButtons()
         while True:                
             ####################################
             # Action impletment 
@@ -296,14 +295,14 @@ class TestMenuList(RPiSparkModule):
                 self.myScreen.Display.setContrast( 0xA0 )
 
                 #Reconfig keyboard int
-                self._initKeyButtons()
+                self.initKeyButtons()
                 self._actStatus = ACTION_DRAW_MENU
                 continue
             
             # Run submoudle
             if self._actStatus == ACTION_RUN_MODULE:
                 self._actStatus = ACTION_NONE
-                self._releaseKeyButtons()  #reset keyboard int
+                self.releaseKeyButtons()  #reset keyboard int
 
                 # do something for submodule ...
                 menuItem = self.myMenuItems.curMenuItem()
@@ -318,14 +317,14 @@ class TestMenuList(RPiSparkModule):
             if self._actStatus == ACTION_MENU_PREV:
                 self.myMenuItems.previous()
                 self._actStatus = ACTION_DRAW_MENU
-                # self._beep()
+                # self.beep()
                 continue
 
             # Next Menu Item
             if self._actStatus == ACTION_MENU_NEXT:
                 self.myMenuItems.next()
                 self._actStatus = ACTION_DRAW_MENU
-                # self._beep()
+                # self.beep()
                 continue
 
             # Update menu item
@@ -336,7 +335,7 @@ class TestMenuList(RPiSparkModule):
                 self._actStatus = ACTION_NONE
                 continue
 
-        self._releaseKeyButtons()
+        self.releaseKeyButtons()
         # self._sndFinish()
         GPIO.cleanup()
         print("\nTestting done.")

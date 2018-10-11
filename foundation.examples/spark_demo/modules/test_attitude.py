@@ -74,7 +74,7 @@ class TestAttitude(RPiSparkModule):
     #Test display
     def run(self):
         print("Press button A and Joy Up to exit testting ...")
-        self._initKeyButtons("QUERY")
+        self.initKeyButtons("QUERY")
 
         # Open attitude with all sensor ( accel, gyro, temp )
         self.myAttitude.setAccelRange(self.myAttitude.ACCEL_RANGE_2G)
@@ -108,7 +108,7 @@ class TestAttitude(RPiSparkModule):
             #################################
             # Button status read
             #
-            if self._readExitButtonStatus(): break
+            if self.readExitButtonStatus(): break
 
         self.cleanup()
         print("Attitude testting done.")

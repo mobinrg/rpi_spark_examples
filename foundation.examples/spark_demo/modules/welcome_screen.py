@@ -29,10 +29,10 @@ class TestWelcome(RPiSparkModule):
     myScreen = None
 
 #     def sndStart(self):
-#         self._beepTone(5, 0.1)
-#         self._beepTone(6, 0.1)
-#         self._beepTone(2, 0.1)
-#         self._beepTone(1, 0.1)
+#         self.beepTone(5, 0.1)
+#         self.beepTone(6, 0.1)
+#         self.beepTone(2, 0.1)
+#         self.beepTone(1, 0.1)
 #         sleep(0.1)
 
     def setup(self):
@@ -58,11 +58,11 @@ class TestWelcome(RPiSparkModule):
 #         )
 
         # Wait press button A or B
-        self._initKeyButtons("QUERY")
+        self.initKeyButtons("QUERY")
 #         self.sndStart()
         while True:
-            if self._readAnyButtonStatus(): break
-#             if self._readKeyButton(self.RPiSparkConfig.BUTTON_ACT_A):break
-#             if self._readKeyButton(self.RPiSparkConfig.BUTTON_ACT_B):break
+            if self.readAnyButtonStatus(): break
+#             if self.readKeyButton(self.RPiSparkConfig.BUTTON_ACT_A):break
+#             if self.readKeyButton(self.RPiSparkConfig.BUTTON_ACT_B):break
 
 #         self.myScreen.Display.scrollOff()

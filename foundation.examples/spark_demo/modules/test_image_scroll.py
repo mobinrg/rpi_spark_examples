@@ -47,7 +47,7 @@ class TestImageScroll(RPiSparkModule):
         
     def cleanup(self):
         #release key buttons
-        self._releaseKeyButtons()
+        self.releaseKeyButtons()
 
         #close attitude sensor
         GPIO.remove_event_detect( self.RPiSparkConfig.ATTITUDE_INT )
@@ -114,7 +114,7 @@ class TestImageScroll(RPiSparkModule):
     #Test Image Scroll
     def run(self):
         print("Shake device to change image. Press button A and Joy Up to exit testting ...")
-        self._initKeyButtons("QUERY")
+        self.initKeyButtons("QUERY")
 
         self.myAttitude.openWith( accel = True, gyro = False, temp = False, cycle = False )
         self.myAttitude.setMotionInt()
@@ -147,7 +147,7 @@ class TestImageScroll(RPiSparkModule):
             #################################
             # Button status read
             #
-            if self._readExitButtonStatus(): break
+            if self.readExitButtonStatus(): break
 
         #
         self.cleanup()

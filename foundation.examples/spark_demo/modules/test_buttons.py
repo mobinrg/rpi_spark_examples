@@ -36,7 +36,7 @@ class TestButtons(RPiSparkModule):
     #Test display
     def run(self):
         print("Press button A and Joy Up to exit testting ...")
-        self._initKeyButtons("QUERY")
+        self.initKeyButtons("QUERY")
         while True:
             #################################
             # Draw button status

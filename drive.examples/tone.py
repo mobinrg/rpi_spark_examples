@@ -53,22 +53,22 @@ class demo:
             {"freq": myTONE[2], "reps": 1, "delay": delay1, "muteDelay": muteDelay1},
             {"freq": myTONE[3], "reps": 1, "delay": delay1, "muteDelay": muteDelay1},
             {"freq": myTONE[1], "reps": 1, "delay": delay1, "muteDelay": muteDelay1},
-            
+
             {"freq": myTONE[1], "reps": 1, "delay": delay1, "muteDelay": muteDelay1},
             {"freq": myTONE[2], "reps": 1, "delay": delay1, "muteDelay": muteDelay1},
             {"freq": myTONE[3], "reps": 1, "delay": delay1, "muteDelay": muteDelay1},
             {"freq": myTONE[1], "reps": 1, "delay": delay1, "muteDelay": muteDelay1},
-            
+
             {"freq": myTONE[3], "reps": 1, "delay": delay1, "muteDelay": muteDelay1},
             {"freq": myTONE[4], "reps": 1, "delay": delay1, "muteDelay": muteDelay1},
             {"freq": myTONE[5], "reps": 1, "delay": delay2, "muteDelay": muteDelay1},
-            
+
             {"freq": myTONE[3], "reps": 1, "delay": delay1, "muteDelay": muteDelay1},
             {"freq": myTONE[4], "reps": 1, "delay": delay1, "muteDelay": muteDelay1},
             {"freq": myTONE[5], "reps": 1, "delay": delay2, "muteDelay": muteDelay1},
-            
+
             ################################
-            
+
             {"freq": myTONE[5], "reps": 1, "delay": delay_2, "muteDelay": muteDelay1},
             {"freq": myTONE[6], "reps": 1, "delay": delay_2, "muteDelay": muteDelay1},
             {"freq": myTONE[5], "reps": 1, "delay": delay_2, "muteDelay": muteDelay1},
@@ -82,7 +82,7 @@ class demo:
             {"freq": myTONE[4], "reps": 1, "delay": delay_2, "muteDelay": muteDelay1},
             {"freq": myTONE[3], "reps": 1, "delay": delay1, "muteDelay": muteDelay1},
             {"freq": myTONE[1], "reps": 1, "delay": delay1, "muteDelay": muteDelay1},
-            
+
             {"freq": myTONE[1], "reps": 1, "delay": delay1, "muteDelay": muteDelay1},
             {"freq": myTONE2[5], "reps": 1, "delay": delay1, "muteDelay": muteDelay1},
             {"freq": myTONE[1], "reps": 1, "delay": delay2, "muteDelay": muteDelay1},

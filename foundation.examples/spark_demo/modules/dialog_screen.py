@@ -40,15 +40,15 @@ class DialogScreen(RPiSparkModule):
         self.drawButtons(10, 50, aTitle = "YES", bTitle = "NO")
         self.myScreen.refresh()
 
-        self._initKeyButtons("QUERY")
+        self.initKeyButtons("QUERY")
         result = DialogConst.DIALOG_BUTTON_UNKNOW
         sleep(0.5)
         while True:
-            if self._readKeyButton(self.RPiSparkConfig.BUTTON_ACT_A):
+            if self.readKeyButton(self.RPiSparkConfig.BUTTON_ACT_A):
                 result = DialogConst.DIALOG_BUTTON_YES
                 break
 
-            if self._readKeyButton(self.RPiSparkConfig.BUTTON_ACT_B):
+            if self.readKeyButton(self.RPiSparkConfig.BUTTON_ACT_B):
                 result = DialogConst.DIALOG_BUTTON_NO
                 break
         return result
@@ -59,13 +59,13 @@ class DialogScreen(RPiSparkModule):
         drawMultiLineText(draw, 0,0, text=message, fontName=self.fontName, fontSize = self.fontSize )
         self.myScreen.refresh()
 
-        self._initKeyButtons("QUERY")
+        self.initKeyButtons("QUERY")
         if waitKey != None:
             sleep(0.5)
             while True:
-                if self._readAnyButtonStatus(): break
-#                 if self._readKeyButton(self.RPiSparkConfig.BUTTON_ACT_A):break
-#                 if self._readKeyButton(self.RPiSparkConfig.BUTTON_ACT_B):break        
+                if self.readAnyButtonStatus(): break
+#                 if self.readKeyButton(self.RPiSparkConfig.BUTTON_ACT_A):break
+#                 if self.readKeyButton(self.RPiSparkConfig.BUTTON_ACT_B):break        
 
     def setup(self):
         self.myScreen = self.RPiSpark.Screen
