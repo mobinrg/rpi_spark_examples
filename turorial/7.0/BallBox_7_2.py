@@ -7,7 +7,7 @@ class BallBox(RPiSparkModule):
 
     def _drawVel(self):
         self.RPiSpark.Screen.Canvas.rectangle( (2, 2, 38, 16), 0, 0 )
-        self.RPiSpark.Screen.write("DAM:{:1d}".format( self.velocity ), xy=(0,4))
+        self.RPiSpark.Screen.write("DAM:{:1d}".format( self.damping ), xy=(0,4))
 
     def _changeDam(self, offsetVel):
         """
